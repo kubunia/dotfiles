@@ -1,40 +1,41 @@
 call plug#begin('~/.vim/plugged')
-Plug 'nanotech/jellybeans.vim'																									" Color scheme
+Plug 'nanotech/jellybeans.vim'                                                  " Color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }              " Fuzzy search
 Plug 'junegunn/fzf.vim'                                                         " Fzf vim
-Plug 'tpope/vim-surround'																												" Surround text
-Plug 'kchmck/vim-coffee-script'																									" Mainly syntax highlighting
-Plug 'pangloss/vim-javascript'																									" JS syntax highlighting
-Plug 'mxw/vim-jsx'																															" JSX/React syntax highlighting
-Plug 'tpope/vim-endwise'																												" Auto ending blocks
-Plug 'ervandew/supertab'																												" Autocomplete with <tab>
-Plug 'nathanaelkane/vim-indent-guides'																					" Visualy shows indent
-Plug 'ctrlpvim/ctrlp.vim'																												" File search in project
-Plug 'raimondi/delimitmate'																											" Automatic closing quotes etc.
-Plug 'tpope/vim-commentary'																											" Commenting stuff
-Plug 'airblade/vim-gitgutter'																										" Git lines status
-Plug 'tpope/vim-repeat'																													" Support repeat (.) for plugins
-Plug 'qpkorr/vim-bufkill'																												" Easy buffor killing
-Plug 'easymotion/vim-easymotion'																								" Extends motions
-Plug 'ap/vim-buftabline'																												" Buffers as tabs
+Plug 'tpope/vim-surround'                                                       " Surround text
+Plug 'kchmck/vim-coffee-script'                                                 " Mainly syntax highlighting
+Plug 'pangloss/vim-javascript'                                                  " JS syntax highlighting
+Plug 'mxw/vim-jsx'                                                              " JSX/React syntax highlighting
+Plug 'tpope/vim-endwise'                                                        " Auto ending blocks
+Plug 'ervandew/supertab'                                                        " Autocomplete with <tab>
+Plug 'nathanaelkane/vim-indent-guides'                                          " Visualy shows indent
+Plug 'ctrlpvim/ctrlp.vim'                                                       " File search in project
+Plug 'raimondi/delimitmate'                                                     " Automatic closing quotes etc.
+Plug 'tpope/vim-commentary'                                                     " Commenting stuff
+Plug 'airblade/vim-gitgutter'                                                   " Git lines status
+Plug 'tpope/vim-repeat'                                                         " Support repeat (.) for plugins
+Plug 'qpkorr/vim-bufkill'                                                       " Easy buffor killing
+Plug 'easymotion/vim-easymotion'                                                " Extends motions
+Plug 'ap/vim-buftabline'                                                        " Buffers as tabs
 Plug 'tpope/vim-sleuth'                                                         " Handles with identations
 Plug 'vim-airline/vim-airline'                                                  " Status bar template
-Plug 'tpope/vim-fugitive'																												" Git in vim
-Plug 'scrooloose/nerdtree'																											" File system explorer
-Plug 'Xuyuanp/nerdtree-git-plugin'																							" Nerdtree with git markers
-Plug 'ngmy/vim-rubocop'																													" Rubocop
-Plug 'gabebw/vim-spec-runner'																										" Rspec runner
+Plug 'tpope/vim-fugitive'                                                       " Git in vim
+Plug 'scrooloose/nerdtree'                                                      " File system explorer
+Plug 'Xuyuanp/nerdtree-git-plugin'                                              " Nerdtree with git markers
+Plug 'ngmy/vim-rubocop'                                                         " Rubocop
+Plug 'gabebw/vim-spec-runner'                                                   " Rspec runner
 Plug 'christoomey/vim-tmux-navigator'                                           " Synchronize moving with tmux
 Plug 'christoomey/vim-tmux-runner'                                              " TMUX runner
-Plug 'christoomey/vim-conflicted'																								" Handling with git conflicts
-Plug 'vim-ruby/vim-ruby'																												" Ruby stuff
-Plug 'tpope/vim-rails'																													" Rails stuff
-Plug 'pbrisbin/vim-mkdir'																												" Creates directories before save
+Plug 'christoomey/vim-conflicted'                                               " Handling with git conflicts
+Plug 'vim-ruby/vim-ruby'                                                        " Ruby stuff
+Plug 'tpope/vim-rails'                                                          " Rails stuff
+Plug 'pbrisbin/vim-mkdir'                                                       " Creates directories before save
 Plug 'vim-scripts/blockle.vim'                                                  " Change ruby block
 Plug 'kana/vim-textobj-user'                                                    " Custom text objects
 Plug 'nelstrom/vim-textobj-rubyblock'                                           " Ruby text objects
 Plug 'SirVer/ultisnips'                                                         " Snippets engine
 Plug 'honza/vim-snippets'                                                       " Snippets
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }                          " Autoformat files on save
 call plug#end()
 
 hi TabLineFill cterm=none ctermfg=grey  ctermbg=cyan
@@ -79,11 +80,10 @@ set tabstop=2
 set foldmethod=manual
 set list listchars=tab:\ \ ,trail:·
 set linebreak
-let g:airline#extensions#branch#enabled = 1
 let mapleader=" "
+let g:airline#extensions#branch#enabled = 1
 let g:prettier#autoformat = 0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_prompt_mappings = { 'PrtExit()' : ['<C-Space>', '<esc>'] }
 let g:blockle_mapping = '<NOP>'
 let g:vimrubocop_keymap = 0
 
@@ -118,10 +118,10 @@ nnoremap <silent> <leader>= :wincmd =<cr>
 nnoremap <leader>bp orequire "pry"; binding.pry<esc>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>; :
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
+nnoremap <leader>w <esc>:w<CR>
+nnoremap <leader>q <esc>:q<CR>
 
-nnoremap H 0
+nnoremap H ^
 nnoremap L $
 nnoremap 0 ^
 nmap j gj
@@ -138,16 +138,7 @@ nnoremap <leader>ra :w<CR> :RuboCop -a<CR>
 nnoremap <silent> <leader>ru :RuboCop <CR>
 map <Leader>bt :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR>
 nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
-nnoremap <leader>bf :Buffers<CR>
-
-augroup nerdtreebindings
-  autocmd!
-  autocmd FileType nerdtree map <buffer> <C-c> <NOP>
-  autocmd FileType nerdtree map <buffer> <C-f> <NOP>
-  autocmd FileType nerdtree map <buffer> <C-p> <NOP>
-  autocmd FileType nerdtree map <buffer> <leader>x <NOP>
-  autocmd FileType nerdtree nnoremap <buffer> <Tab> <NOP>
-augroup END
+nnoremap <leader>, :Buffers<CR>
 
 " Unmap
 nnoremap Q <nop>
@@ -199,7 +190,7 @@ nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 
 " NERDTree
 let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=3
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
@@ -210,6 +201,16 @@ let g:NERDTrimTrailingWhitespace = 1
 
 nnoremap <leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
 nnoremap <leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
+
+augroup nerdtreebindings
+  autocmd!
+  autocmd FileType nerdtree map <buffer> <C-c> <NOP>
+  autocmd FileType nerdtree map <buffer> <C-f> <NOP>
+  autocmd FileType nerdtree map <buffer> <C-p> <NOP>
+  autocmd FileType nerdtree map <buffer> <leader>x <NOP>
+  autocmd FileType nerdtree nnoremap <buffer> <Tab> <NOP>
+augroup END
+
 
 iabbrev init initialize
 
