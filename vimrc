@@ -36,7 +36,9 @@ Plug 'nelstrom/vim-textobj-rubyblock'                                           
 Plug 'SirVer/ultisnips'                                                         " Snippets engine
 Plug 'honza/vim-snippets'                                                       " Snippets
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }                          " Autoformat files on save
+Plug 'takac/vim-hardtime'
 call plug#end()
+let g:hardtime_default_on = 1
 
 hi TabLineFill cterm=none ctermfg=grey  ctermbg=cyan
 hi TabLine     cterm=none ctermfg=white ctermbg=cyan
@@ -86,6 +88,11 @@ let g:prettier#autoformat = 0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:blockle_mapping = '<NOP>'
 let g:vimrubocop_keymap = 0
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_expand_space = 1
+
 
 highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
@@ -139,6 +146,11 @@ nnoremap <silent> <leader>ru :RuboCop <CR>
 map <Leader>bt :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR>
 nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
 nnoremap <leader>, :Buffers<CR>
+nmap s <Plug>(easymotion-s)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+imap <expr> <C-n> delimitMate#JumpAny()
+imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR <Tab>"
 
 " Unmap
 nnoremap Q <nop>
@@ -185,7 +197,7 @@ nnoremap <leader>vnor :noautocmd :VtrOpenRunner {'orientation': 'h', 'percentage
 nnoremap <leader>vr :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
 nnoremap <leader>vk :VtrKillRunner<CR>
 nnoremap <leader>vs :VtrSendLinesToRunner<CR>
-vnoremap <leader>vs :VtrSendLinesToRunner<CR>
+nnoremap <leader>vf :VtrFocusRunner<CR>
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 " NERDTree
