@@ -6,11 +6,11 @@ Plug 'tpope/vim-surround'                                                       
 Plug 'kchmck/vim-coffee-script'                                                 " Mainly syntax highlighting
 Plug 'pangloss/vim-javascript'                                                  " JS syntax highlighting
 Plug 'mxw/vim-jsx'                                                              " JSX/React syntax highlighting
-Plug 'tpope/vim-endwise'                                                        " Auto ending blocks
 Plug 'ervandew/supertab'                                                        " Autocomplete with <tab>
 Plug 'nathanaelkane/vim-indent-guides'                                          " Visualy shows indent
 Plug 'ctrlpvim/ctrlp.vim'                                                       " File search in project
 Plug 'raimondi/delimitmate'                                                     " Automatic closing quotes etc.
+Plug 'tpope/vim-endwise'                                                        " Auto ending blocks
 Plug 'tpope/vim-commentary'                                                     " Commenting stuff
 Plug 'airblade/vim-gitgutter'                                                   " Git lines status
 Plug 'tpope/vim-repeat'                                                         " Support repeat (.) for plugins
@@ -92,6 +92,8 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_inside_quotes = 1
+let g:delimitMate_jump_expansion = 1
 
 
 highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
@@ -108,6 +110,10 @@ vnoremap <C-@> <Esc>gV
 onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>
+
+" Unmap
+nnoremap Q <nop>
+nnoremap q <nop>
 
 " Maps
 map <C-c> :BD<CR>
@@ -143,18 +149,14 @@ vnoremap <Space> zf
 " Plug maps
 nnoremap <leader>ra :w<CR> :RuboCop -a<CR>
 nnoremap <silent> <leader>ru :RuboCop <CR>
-map <Leader>bt :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR>
+map <Leader>bt :HardTimeOff<CR> :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR> :HardTimeOn<CR>
 nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
 nnoremap <leader>, :Buffers<CR>
 nmap s <Plug>(easymotion-s)
+nmap q <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 imap <expr> <C-n> delimitMate#JumpAny()
-imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR <Tab>"
-
-" Unmap
-nnoremap Q <nop>
-nnoremap q <nop>
 
 " File specific
 filetype plugin on
