@@ -93,8 +93,6 @@ let g:EasyMotion_smartcase = 1
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
-let g:delimitMate_jump_expansion = 1
-
 
 highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
@@ -122,8 +120,8 @@ nnoremap <S-Tab> :bprev<CR>
 vnoremap <C-u> U
 inoremap <C-x> <DEL>
 
-nnoremap <leader>sub :%s///g<left><left>
-vnoremap <leader>sub :s///g<left><left>
+nnoremap <leader>sub :%s//g<left><left>
+vnoremap <leader>sub :s//g<left><left>
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <silent> <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -146,6 +144,9 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
+nmap <silent> <M-k> :move -2<CR>
+nmap <silent> <M-j> :move +1<CR>
+
 " Plug maps
 nnoremap <leader>ra :w<CR> :RuboCop -a<CR>
 nnoremap <silent> <leader>ru :RuboCop <CR>
@@ -154,9 +155,7 @@ nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
 nnoremap <leader>, :Buffers<CR>
 nmap s <Plug>(easymotion-s)
 nmap q <Plug>(easymotion-overwin-f2)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-imap <expr> <C-n> delimitMate#JumpAny()
+imap <expr> <C-q> delimitMate#JumpAny()
 
 " File specific
 filetype plugin on
@@ -245,3 +244,10 @@ if executable('ag')
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
+
+" Meta-keys fix
+for i in range(97,122)
+  let c = nr2char(i)
+  exec "map \e".c." <M-".c.">"
+  exec "map! \e".c." <M-".c.">"
+endfor
