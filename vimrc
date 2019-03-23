@@ -120,8 +120,6 @@ nnoremap <S-Tab> :bprev<CR>
 vnoremap <C-u> U
 inoremap <C-x> <DEL>
 
-nnoremap <leader>sub :%s//g<left><left>
-vnoremap <leader>sub :s//g<left><left>
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <silent> <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -144,8 +142,12 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-nmap <silent> <M-k> :move -2<CR>
-nmap <silent> <M-j> :move +1<CR>
+nnoremap <silent> <A-j> :m .+1<CR>==
+nnoremap <silent> <A-k> :m .-2<CR>==
+inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
+inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 
 " Plug maps
 nnoremap <leader>ra :w<CR> :RuboCop -a<CR>
@@ -156,20 +158,21 @@ nnoremap <leader>, :Buffers<CR>
 nmap s <Plug>(easymotion-s)
 nmap q <Plug>(easymotion-overwin-f2)
 imap <expr> <C-q> delimitMate#JumpAny()
+nnoremap <Leader>ss :%s/\<<C-r><C-w>\>/
 
 " File specific
 filetype plugin on
 filetype indent on
 
 augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 augroup filetype_autocompletes
-    autocmd!
-    autocmd FileType python :iabbrev <buffer> iff if:<left>
-    autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+  autocmd!
+  autocmd FileType python :iabbrev <buffer> iff if:<left>
+  autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
 augroup END
 
 " AutoCMD
@@ -198,8 +201,12 @@ nnoremap <leader>vnor :noautocmd :VtrOpenRunner {'orientation': 'h', 'percentage
 nnoremap <leader>vr :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
 nnoremap <leader>vk :VtrKillRunner<CR>
 nnoremap <leader>vs :VtrSendLinesToRunner<CR>
+vnoremap <leader>vs :VtrSendLinesToRunner<CR>
 nnoremap <leader>vf :VtrFocusRunner<CR>
+nnoremap <leader>va1 :VtrAttachRunner 1<CR>
+nnoremap <leader>va2 :VtrAttachRunner 2<CR>
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
+
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -240,7 +247,7 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap <Leader>f :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
