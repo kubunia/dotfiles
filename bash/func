@@ -1,5 +1,35 @@
 #!/bin/bash
 
+# TMUX autorun
+_not_inside_tmux() {
+  [[ -z "$TMUX" ]]
+}
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
+
+# git status on bash prompt
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+git_status() {
+  status_porcelain="$(git status --porcelain 2> /dev/null)"
+  stash=$([[ `git stash list 2> /dev/null` ]] && echo -n "$")
+
+  if [[ $(grep "^[^??]" <<< $status_porcelain ) ]]; then
+    status=$(echo "*")
+  elif [[ $(grep "^?? [^\.]" <<< $status_porcelain ) ]]; then
+    status=$(echo "+")
+  fi
+
+  [[ $status || $stash ]] && echo "[$stash$status]"
+}
+
+
 # git alias function with default param
 g() {
   if ! [ -d .git ]; then

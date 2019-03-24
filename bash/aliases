@@ -1,6 +1,12 @@
 #!/bin/bash
-#
+
 alias c='clear'
+alias b='budle exec'
+alias rc='bundle exec rails c'
+alias rd='bundle exec rails dbconsole'
+alias rdm='bundle exec rails db:migrate'
+alias rdr='bundle exec rails db:rollback'
+alias rs='bundle exec rspec'
 
 # xclip clipboard
 alias pbcopy='xclip -selection clipboard'
