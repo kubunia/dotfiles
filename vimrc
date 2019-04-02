@@ -36,6 +36,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'                                           
 Plug 'SirVer/ultisnips'                                                         " Snippets engine
 Plug 'honza/vim-snippets'                                                       " Snippets
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }                          " Autoformat files on save
+Plug 'tpope/vim-bundler'                                                        " Bundler integration
+Plug 'alvan/vim-closetag'                                                       " Tags autoclose
 Plug 'takac/vim-hardtime'
 call plug#end()
 let g:hardtime_default_on = 1
@@ -93,6 +95,8 @@ let g:EasyMotion_smartcase = 1
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
+let g:closetag_filenames = '*.erb, *.js, *.jsx'
+let g:surround_no_insert_mappings = 1
 
 highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
@@ -118,7 +122,7 @@ map <C-c> :BD<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 vnoremap <C-u> U
-inoremap <C-x> <DEL>
+inoremap <C-d> <DEL>
 
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
@@ -142,12 +146,13 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-nnoremap <silent> <A-j> :m .+1<CR>==
-nnoremap <silent> <A-k> :m .-2<CR>==
-inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
-inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+nnoremap <silent> <C-t> :m .+1<CR>==
+nnoremap <silent> <C-g> :m .-2<CR>==
+vnoremap <silent> <C-t> :m '>+1<CR>gv=gv
+vnoremap <silent> <C-g> :m '<-2<CR>gv=gv
+
+nnoremap <Leader>ss :%s/\<<C-r><C-w>\>/
+vnoremap <Leader>ss :s//g<Left><Left>
 
 " Plug maps
 nnoremap <leader>ra :w<CR> :RuboCop -a<CR>
@@ -158,7 +163,6 @@ nnoremap <leader>, :Buffers<CR>
 nmap s <Plug>(easymotion-s)
 nmap q <Plug>(easymotion-overwin-f2)
 imap <expr> <C-q> delimitMate#JumpAny()
-nnoremap <Leader>ss :%s/\<<C-r><C-w>\>/
 
 " File specific
 filetype plugin on
@@ -173,7 +177,9 @@ augroup filetype_autocompletes
   autocmd!
   autocmd FileType python :iabbrev <buffer> iff if:<left>
   autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+  autocmd FileType javascript UltiSnipsAddFiletypes javascript-es6-react
 augroup END
+
 
 " AutoCMD
 autocmd StdinReadPre * let s:std_in=1
@@ -206,7 +212,6 @@ nnoremap <leader>vf :VtrFocusRunner<CR>
 nnoremap <leader>va1 :VtrAttachRunner 1<CR>
 nnoremap <leader>va2 :VtrAttachRunner 2<CR>
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
-
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -251,10 +256,3 @@ if executable('ag')
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
-
-" Meta-keys fix
-for i in range(97,122)
-  let c = nr2char(i)
-  exec "map \e".c." <M-".c.">"
-  exec "map! \e".c." <M-".c.">"
-endfor

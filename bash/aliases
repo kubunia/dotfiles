@@ -1,7 +1,9 @@
 #!/bin/bash
 
 alias c='clear'
-alias b='budle exec'
+alias b='bundle exec'
+alias v='vim'
+alias bv='bundle exec vim'
 alias rc='bundle exec rails c'
 alias rd='bundle exec rails dbconsole'
 alias rdm='bundle exec rails db:migrate'
