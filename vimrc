@@ -116,6 +116,7 @@ inoremap <C-@> <Esc>
 " Unmap
 nnoremap Q <nop>
 nnoremap q <nop>
+noremap <backspace> <nop>
 
 " Maps
 map <C-c> :BD<CR>
@@ -130,7 +131,6 @@ nnoremap <silent> <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <silent> <leader>= :wincmd =<cr>
 nnoremap <leader>bp orequire "pry"; binding.pry<esc>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>; :
 nnoremap <leader>w <esc>:w<CR>
 nnoremap <leader>q <esc>:q<CR>
 
@@ -211,6 +211,7 @@ vnoremap <leader>vs :VtrSendLinesToRunner<CR>
 nnoremap <leader>vf :VtrFocusRunner<CR>
 nnoremap <leader>va1 :VtrAttachRunner 1<CR>
 nnoremap <leader>va2 :VtrAttachRunner 2<CR>
+nnoremap <leader>vc :VtrSendCommand 
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 " NERDTree
