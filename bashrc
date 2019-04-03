@@ -11,6 +11,14 @@ source /usr/share/bash-completion/completions/git
 [[ -s "/home/$USER/.bash/aliases" ]] && source "/home/$USER/.bash/aliases"
 [[ -s "/home/$USER/.bash/func" ]] && source "/home/$USER/.bash/func"
 
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignorespace:erasedups
+export HISTIGNORE="ls:ps:history"
+shopt -s cmdhist
+shopt -s histappend
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 ensure_tmux_is_running
 
 export PS1="\[\e[32m\]\w\[\e[33m\]\$(parse_git_branch)\[\e[91m\]\$(git_status)\[\e[m\]: "
