@@ -51,6 +51,7 @@ syntax on
 colorscheme jellybeans
 runtime macros/matchit.vim
 
+set wildmenu
 set nocompatible
 set number relativenumber
 set backspace=indent,eol,start
@@ -129,7 +130,6 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <silent> <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <silent> <leader>= :wincmd =<cr>
-nnoremap <leader>bp orequire "pry"; binding.pry<esc>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>w <esc>:w<CR>
 nnoremap <leader>q <esc>:q<CR>
@@ -146,16 +146,16 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-nnoremap <silent> <C-t> :m .+1<CR>==
-nnoremap <silent> <C-g> :m .-2<CR>==
-vnoremap <silent> <C-t> :m '>+1<CR>gv=gv
-vnoremap <silent> <C-g> :m '<-2<CR>gv=gv
+nnoremap <silent> <C-g> :m .+1<CR>==
+nnoremap <silent> <C-t> :m .-2<CR>==
+vnoremap <silent> <C-g> :m '>+1<CR>gv=gv
+vnoremap <silent> <C-t> :m '<-2<CR>gv=gv
 
-nnoremap <Leader>ss :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>ss :s//g<Left><Left>
 
 " Plug maps
-nnoremap <leader>ra :w<CR> :RuboCop -a<CR>
+nnoremap <silent> <leader>ra :w<CR> :RuboCop -a<CR>
 nnoremap <silent> <leader>ru :RuboCop <CR>
 map <Leader>bt :HardTimeOff<CR> :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR> :HardTimeOn<CR>
 nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
@@ -209,10 +209,14 @@ nnoremap <leader>vk :VtrKillRunner<CR>
 nnoremap <leader>vs :VtrSendLinesToRunner<CR>
 vnoremap <leader>vs :VtrSendLinesToRunner<CR>
 nnoremap <leader>vf :VtrFocusRunner<CR>
-nnoremap <leader>va1 :VtrAttachRunner 1<CR>
-nnoremap <leader>va2 :VtrAttachRunner 2<CR>
+nnoremap <leader>va :call VtrAttach(n:count)
+nnoremap <silent> <leader>va :<C-u>call VtrAttach(v:count)<cr>
 nnoremap <leader>vc :VtrSendCommand 
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
+
+function! VtrAttach(arg)
+  execute ':VtrAttachToPane '.a:arg
+endfunction
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -257,6 +261,28 @@ if executable('ag')
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
+
+" Binding pry
+nnoremap <leader>bp orequire "pry"; binding.pry<esc>
+nnoremap <leader>bP <up> orequire "pry"; binding.pry<esc>
+nnoremap <silent> <leader>br :g/binding.pry/d<cr>
+nnoremap <silent> <leader>bi :<C-u>call InsertBindingPry(v:count)<cr>
+
+function! InsertBindingPry(args)
+  execute ':'+ a:args
+  normal! Orequire "pry"; binding.pry
+endfunction
+
+" Custom functions
+function! RemoveLines(arg)
+  execute ':'.a:arg."d | ''"
+endfunction
+nnoremap <silent> <leader>fr :call RemoveLines('')<left><left>
+
+function! MoveLines(arg)
+  execute ':'.a:arg.'m.'
+endfunction
+nnoremap <silent> <leader>fm :call MoveLines('')<left><left>
 
 let g:rails_projections = {
       \  "app/controllers/*_controller.rb": {
