@@ -1,0 +1,7 @@
+[user]
+	name = arowinski
+	email = arowinski02@gmail.com
+[core]
+	editor = vim
+[alias]
+	conflicted = !vim +Conflicted
