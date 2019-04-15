@@ -16,7 +16,6 @@ Plug 'airblade/vim-gitgutter'                                                   
 Plug 'tpope/vim-repeat'                                                         " Support repeat (.) for plugins
 Plug 'qpkorr/vim-bufkill'                                                       " Easy buffor killing
 Plug 'easymotion/vim-easymotion'                                                " Extends motions
-Plug 'ap/vim-buftabline'                                                        " Buffers as tabs
 Plug 'tpope/vim-sleuth'                                                         " Handles with identations
 Plug 'vim-airline/vim-airline'                                                  " Status bar template
 Plug 'tpope/vim-fugitive'                                                       " Git in vim
@@ -85,6 +84,7 @@ set tabstop=2
 set foldmethod=manual
 set list listchars=tab:\ \ ,trail:·
 set linebreak
+set stl+=%{ConflictedVersion()}
 let mapleader=" "
 let g:airline#extensions#branch#enabled = 1
 let g:prettier#autoformat = 0
@@ -155,11 +155,10 @@ nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>ss :s//g<Left><Left>
 
 " Plug maps
-nnoremap <silent> <leader>ra :w<CR> :RuboCop -a<CR>
-nnoremap <silent> <leader>ru :RuboCop <CR>
+nnoremap <silent> <leader>r :w<CR> :RuboCop -a<CR>
 map <Leader>bt :HardTimeOff<CR> :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR> :HardTimeOn<CR>
 nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
-nnoremap <leader>, :Buffers<CR>
+nnoremap <leader><leader> :Buffers<CR>
 nmap s <Plug>(easymotion-s)
 nmap q <Plug>(easymotion-overwin-f2)
 imap <expr> <C-q> delimitMate#JumpAny()
@@ -197,10 +196,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " RSpec
-let g:spec_runner_dispatcher = 'call VtrSendCommand("{command}")'
+let g:spec_runner_dispatcher = 'call VtrSendCommand("bundle exec {command}")'
 map <Leader>t <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunCurrentSpecFile
 map <Leader>u <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunFocusedSpec
-map <Leader>v <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunMostRecentSpec
+map <Leader>y <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunMostRecentSpec
 
 " VTR
 nnoremap <leader>vnor :noautocmd :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
@@ -212,7 +211,6 @@ nnoremap <leader>vf :VtrFocusRunner<CR>
 nnoremap <leader>va :call VtrAttach(n:count)
 nnoremap <silent> <leader>va :<C-u>call VtrAttach(v:count)<cr>
 nnoremap <leader>vc :VtrSendCommand 
-nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 function! VtrAttach(arg)
   execute ':VtrAttachToPane '.a:arg
@@ -240,9 +238,6 @@ augroup nerdtreebindings
   autocmd FileType nerdtree map <buffer> <leader>x <NOP>
   autocmd FileType nerdtree nnoremap <buffer> <Tab> <NOP>
 augroup END
-
-
-iabbrev init initialize
 
 if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
   silent !mkdir ~/.vim/backups > /dev/null 2>&1
@@ -275,14 +270,22 @@ endfunction
 
 " Custom functions
 function! RemoveLines(arg)
-  execute ':'.a:arg."d | ''"
+  execute ':'.substitute(a:arg, ' ', ',', '')."d | ''"
 endfunction
-nnoremap <silent> <leader>fr :call RemoveLines('')<left><left>
+nnoremap <silent> <leader>x :set nornu<cr>:call RemoveLines('')<left><left>
 
 function! MoveLines(arg)
-  execute ':'.a:arg.'m.'
+  execute ':'.substitute(a:arg, ' ', ',', '').'m.'
 endfunction
-nnoremap <silent> <leader>fm :call MoveLines('')<left><left>
+nnoremap <silent> <leader>m :set nornu<cr>:call MoveLines('')<left><left>
+
+autocmd CmdlineLeave * :call TurnOnRnu()
+
+function! TurnOnRnu()
+  if (&nu == 1)
+    set rnu
+  endif
+endfunction
 
 let g:rails_projections = {
       \  "app/controllers/*_controller.rb": {
