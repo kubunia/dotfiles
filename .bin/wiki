@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ -d "/home/$USER/.wiki" ]; then
-  files=$(ls /home/$USER/.wiki/*.wiki)
-  fzf $files
-else
-  echo "No wiki available"
-fi
-
