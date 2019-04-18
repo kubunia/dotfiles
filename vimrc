@@ -153,6 +153,7 @@ vnoremap <silent> <C-t> :m '<-2<CR>gv=gv
 
 nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>ss :s//g<Left><Left>
+nnoremap <Leader>p gg=G``
 
 " Plug maps
 nnoremap <silent> <leader>r :w<CR> :RuboCop -a<CR>
