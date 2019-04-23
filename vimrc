@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'                                                  " Color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }              " Fuzzy search
@@ -153,7 +156,7 @@ vnoremap <silent> <C-t> :m '<-2<CR>gv=gv
 
 nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>ss :s//g<Left><Left>
-nnoremap <Leader>p gg=G``
+nnoremap <Leader>i gg=G``
 
 " Plug maps
 nnoremap <silent> <leader>r :w<CR> :RuboCop -a<CR>
@@ -184,7 +187,7 @@ augroup END
 " AutoCMD
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.erb PrettierAsync
 autocmd VimResized * :wincmd =
 
 " TMUX
