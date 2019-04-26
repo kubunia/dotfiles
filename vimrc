@@ -1,6 +1,3 @@
-scriptencoding utf-8
-set encoding=utf-8
-
 call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'                                                  " Color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }              " Fuzzy search
@@ -105,13 +102,13 @@ let g:surround_no_insert_mappings = 1
 highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" Remap ESC
-nnoremap <silent> <C-Space> <Esc>:noh<CR>
+" Remap Esc
+nnoremap <Silent> <C-Space> <Esc>:noh<CR>
 vnoremap <C-Space> <Esc>gV
 onoremap <C-Space> <Esc>
 cnoremap <C-Space> <C-c>
 inoremap <C-Space> <Esc>
-nnoremap <silent> <C-@> <Esc>:noh<CR>
+nnoremap <Silent> <C-@> <Esc>:noh<CR>
 vnoremap <C-@> <Esc>gV
 onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
@@ -129,13 +126,13 @@ nnoremap <S-Tab> :bprev<CR>
 vnoremap <C-u> U
 inoremap <C-d> <DEL>
 
-nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-nnoremap <silent> <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <silent> <leader>= :wincmd =<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>w <esc>:w<CR>
-nnoremap <leader>q <esc>:q<CR>
+nnoremap <Leader>' viw<Esc>a'<Esc>bi'<Esc>lel
+nnoremap <Leader>" viw<Esc>a"<Esc>bi"<Esc>lel
+nnoremap <Silent> <Leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <Silent> <Leader>= :wincmd =<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>w <Esc>:w<CR>
+nnoremap <Leader>q <Esc>:q<CR>
 
 nnoremap H ^
 nnoremap L $
@@ -143,26 +140,23 @@ nnoremap 0 ^
 nmap j gj
 nmap k gk
 
-onoremap in( :<c-u>normal! f(vi(<cr>
-onoremap in{ :<c-u>normal! f{vi{<cr>
+onoremap in( :<c-u>normal! f(vi(<CR>
+onoremap in{ :<c-u>normal! f{vi{<CR>
 
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <Silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
-
-nnoremap <silent> <C-g> :m .+1<CR>==
-nnoremap <silent> <C-t> :m .-2<CR>==
-vnoremap <silent> <C-g> :m '>+1<CR>gv=gv
-vnoremap <silent> <C-t> :m '<-2<CR>gv=gv
 
 nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
 vnoremap <Leader>ss :s//g<Left><Left>
+nnoremap <Leader>sa :cdo %s//gc<Left><Left><Left>
 nnoremap <Leader>i gg=G``
+nnoremap <Leader>c :<Up>
 
 " Plug maps
-nnoremap <silent> <leader>r :w<CR> :RuboCop -a<CR>
+nnoremap <Silent> <Leader>r :w<CR> :RuboCop -a<CR>
 map <Leader>bt :HardTimeOff<CR> :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR> :HardTimeOn<CR>
-nnoremap <leader>. :CtrlPTag<cr> hi IndentGuidesOdd  ctermbg=black
-nnoremap <leader><leader> :Buffers<CR>
+nnoremap <Leader>. :CtrlPTag<CR> hi IndentGuidesOdd  ctermbg=black
+nnoremap <Leader><Leader> :Buffers<CR>
 nmap s <Plug>(easymotion-s)
 nmap q <Plug>(easymotion-overwin-f2)
 imap <expr> <C-q> delimitMate#JumpAny()
@@ -193,28 +187,28 @@ autocmd VimResized * :wincmd =
 " TMUX
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+nnoremap <Silent> <c-h> :TmuxNavigateLeft<CR>
+nnoremap <Silent> <c-j> :TmuxNavigateDown<CR>
+nnoremap <Silent> <c-k> :TmuxNavigateUp<CR>
+nnoremap <Silent> <c-l> :TmuxNavigateRight<CR>
+nnoremap <Silent> <c-\> :TmuxNavigatePrevious<CR>
 
 " RSpec
 let g:spec_runner_dispatcher = 'call VtrSendCommand("bundle exec {command}")'
-map <Leader>t <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunCurrentSpecFile
-map <Leader>u <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunFocusedSpec
-map <Leader>y <Leader>vnor :wincmd _<cr>:wincmd \|<CR> <Plug>RunMostRecentSpec
+map <Leader>t <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunCurrentSpecFile
+map <Leader>u <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunFocusedSpec
+map <Leader>y <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunMostRecentSpec
 
 " VTR
-nnoremap <leader>vnor :noautocmd :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
-nnoremap <leader>vr :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
-nnoremap <leader>vk :VtrKillRunner<CR>
-nnoremap <leader>vs :VtrSendLinesToRunner<CR>
-vnoremap <leader>vs :VtrSendLinesToRunner<CR>
-nnoremap <leader>vf :VtrFocusRunner<CR>
-nnoremap <leader>va :call VtrAttach(n:count)
-nnoremap <silent> <leader>va :<C-u>call VtrAttach(v:count)<cr>
-nnoremap <leader>vc :VtrSendCommand 
+nnoremap <Leader>vnor :noautocmd :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
+nnoremap <Leader>vr :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
+nnoremap <Leader>vk :VtrKillRunner<CR>
+nnoremap <Leader>vs :VtrSendLinesToRunner<CR>
+vnoremap <Leader>vs :VtrSendLinesToRunner<CR>
+nnoremap <Leader>vf :VtrFocusRunner<CR>
+nnoremap <Leader>va :call VtrAttach(n:count)
+nnoremap <Silent> <Leader>va :<C-u>call VtrAttach(v:count)<CR>
+nnoremap <Leader>vc :VtrSendCommand 
 
 function! VtrAttach(arg)
   execute ':VtrAttachToPane '.a:arg
@@ -231,20 +225,20 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
-nnoremap <leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
-nnoremap <leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
+nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
+nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
 
 augroup nerdtreebindings
   autocmd!
   autocmd FileType nerdtree map <buffer> <C-c> <NOP>
   autocmd FileType nerdtree map <buffer> <C-f> <NOP>
   autocmd FileType nerdtree map <buffer> <C-p> <NOP>
-  autocmd FileType nerdtree map <buffer> <leader>x <NOP>
+  autocmd FileType nerdtree map <buffer> <Leader>x <NOP>
   autocmd FileType nerdtree nnoremap <buffer> <Tab> <NOP>
 augroup END
 
 if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  Silent !mkdir ~/.vim/backups > /dev/null 2>&1
   set undodir=~/.vim/backups
   set undofile
 endif
@@ -257,36 +251,28 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 
   nnoremap <Leader>f :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  command -nargs=+ -complete=file -bar Ag Silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
 
 " Binding pry
-nnoremap <leader>bp orequire "pry"; binding.pry<esc>
-nnoremap <leader>bP <up> orequire "pry"; binding.pry<esc>
-nnoremap <silent> <leader>br :g/binding.pry/d<cr>
-nnoremap <silent> <leader>bi :<C-u>call InsertBindingPry(v:count)<cr>
+nnoremap <Leader>bp orequire "pry"; binding.pry<Esc>
+nnoremap <Leader>bP <up> orequire "pry"; binding.pry<Esc>
+nnoremap <Silent> <Leader>br :g/binding.pry/d<CR>
 
-function! InsertBindingPry(args)
-  execute ':'+ a:args
-  normal! Orequire "pry"; binding.pry
+nnoremap <Leader>x :call AlternativeCommandMode()<CR>:d && normal ``<C-B>
+nnoremap <Leader>m :call AlternativeCommandMode()<CR>:m. && normal ``<C-B>
+
+autocmd CmdlineLeave * :call ResetCommandMode()
+
+function! AlternativeCommandMode()
+  set nornu
+  cnoremap <Space> ,
 endfunction
 
-" Custom functions
-function! RemoveLines(arg)
-  execute ':'.substitute(a:arg, ' ', ',', '')."d | ''"
-endfunction
-nnoremap <silent> <leader>x :set nornu<cr>:call RemoveLines('')<left><left>
-
-function! MoveLines(arg)
-  execute ':'.substitute(a:arg, ' ', ',', '').'m.'
-endfunction
-nnoremap <silent> <leader>m :set nornu<cr>:call MoveLines('')<left><left>
-
-autocmd CmdlineLeave * :call TurnOnRnu()
-
-function! TurnOnRnu()
+function! ResetCommandMode()
   if (&nu == 1)
+    cnoremap <Space> <Space>
     set rnu
   endif
 endfunction
