@@ -103,12 +103,12 @@ highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 " Remap Esc
-nnoremap <Silent> <C-Space> <Esc>:noh<CR>
+nnoremap <silent> <C-Space> <Esc>:noh<CR>
 vnoremap <C-Space> <Esc>gV
 onoremap <C-Space> <Esc>
 cnoremap <C-Space> <C-c>
 inoremap <C-Space> <Esc>
-nnoremap <Silent> <C-@> <Esc>:noh<CR>
+nnoremap <silent> <C-@> <Esc>:noh<CR>
 vnoremap <C-@> <Esc>gV
 onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
@@ -128,8 +128,8 @@ inoremap <C-d> <DEL>
 
 nnoremap <Leader>' viw<Esc>a'<Esc>bi'<Esc>lel
 nnoremap <Leader>" viw<Esc>a"<Esc>bi"<Esc>lel
-nnoremap <Silent> <Leader>- :wincmd _<CR>:wincmd \|<CR>
-nnoremap <Silent> <Leader>= :wincmd =<CR>
+nnoremap <silent> <Leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <silent> <Leader>= :wincmd =<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>w <Esc>:w<CR>
 nnoremap <Leader>q <Esc>:q<CR>
@@ -143,7 +143,7 @@ nmap k gk
 onoremap in( :<c-u>normal! f(vi(<CR>
 onoremap in{ :<c-u>normal! f{vi{<CR>
 
-nnoremap <Silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -153,7 +153,7 @@ nnoremap <Leader>i gg=G``
 nnoremap <Leader>c :<Up>
 
 " Plug maps
-nnoremap <Silent> <Leader>r :w<CR> :RuboCop -a<CR>
+nnoremap <silent> <Leader>r :w<CR> :RuboCop -a<CR>
 map <Leader>bt :HardTimeOff<CR> :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR> :HardTimeOn<CR>
 nnoremap <Leader>. :CtrlPTag<CR> hi IndentGuidesOdd  ctermbg=black
 nnoremap <Leader><Leader> :Buffers<CR>
@@ -187,11 +187,11 @@ autocmd VimResized * :wincmd =
 " TMUX
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <Silent> <c-h> :TmuxNavigateLeft<CR>
-nnoremap <Silent> <c-j> :TmuxNavigateDown<CR>
-nnoremap <Silent> <c-k> :TmuxNavigateUp<CR>
-nnoremap <Silent> <c-l> :TmuxNavigateRight<CR>
-nnoremap <Silent> <c-\> :TmuxNavigatePrevious<CR>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <c-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <c-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <c-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<CR>
 
 " RSpec
 let g:spec_runner_dispatcher = 'call VtrSendCommand("bundle exec {command}")'
@@ -207,7 +207,7 @@ nnoremap <Leader>vs :VtrSendLinesToRunner<CR>
 vnoremap <Leader>vs :VtrSendLinesToRunner<CR>
 nnoremap <Leader>vf :VtrFocusRunner<CR>
 nnoremap <Leader>va :call VtrAttach(n:count)
-nnoremap <Silent> <Leader>va :<C-u>call VtrAttach(v:count)<CR>
+nnoremap <silent> <Leader>va :<C-u>call VtrAttach(v:count)<CR>
 nnoremap <Leader>vc :VtrSendCommand 
 
 function! VtrAttach(arg)
@@ -238,7 +238,7 @@ augroup nerdtreebindings
 augroup END
 
 if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
-  Silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
   set undodir=~/.vim/backups
   set undofile
 endif
@@ -251,16 +251,16 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 
   nnoremap <Leader>f :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-  command -nargs=+ -complete=file -bar Ag Silent! grep! <args>|cwindow|redraw!
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
 endif
 
 " Binding pry
 nnoremap <Leader>bp orequire "pry"; binding.pry<Esc>
 nnoremap <Leader>bP <up> orequire "pry"; binding.pry<Esc>
-nnoremap <Silent> <Leader>br :g/binding.pry/d<CR>
+nnoremap <silent> <Leader>br :g/binding.pry/d<CR>
 
-nnoremap <Leader>x :call AlternativeCommandMode()<CR>:d && normal ``<C-B>
+nnoremap <Leader>x :call AlternativeCommandMode()<CR>:d <bar> normal ``<C-B>
 nnoremap <Leader>m :call AlternativeCommandMode()<CR>:m. && normal ``<C-B>
 
 autocmd CmdlineLeave * :call ResetCommandMode()
