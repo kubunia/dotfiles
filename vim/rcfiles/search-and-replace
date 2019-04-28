@@ -1,0 +1,11 @@
+" Search / Subtitute config
+
+set ignorecase
+set hlsearch
+set incsearch
+set smartcase
+
+nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap <Leader>ss :s//g<Left><Left>
+
+" vim:ft=vim

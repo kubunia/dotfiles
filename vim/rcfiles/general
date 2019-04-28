@@ -1,0 +1,57 @@
+" General settings
+
+filetype plugin indent on
+
+set backspace=indent,eol,start
+
+set nobackup
+set noswapfile
+set nowritebackup
+
+set history=100
+set showcmd                             " Display incomplete commands
+set autowrite                           " Automatically write before running commands
+set timeoutlen=1000 ttimeoutlen=0       " Waiting time for mapping fire
+set formatoptions-=t                    " Don't auto-break long lines
+
+" Softabs, 2 spaces
+set smarttab
+set shiftwidth=2
+set tabstop=2
+set expandtab
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
+" Display relative line numbers, with absolute line number for current line
+set number relativenumber
+set numberwidth=3
+
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+" Don't require saving before closing a buffer
+set hidden
+
+" Do not scroll entirely, keep visible few lines
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
+
+" Others
+set visualbell
+set vb t_vb=
+set autoread
+set clipboard=unnamedplus
+
+" vim:ft=vim

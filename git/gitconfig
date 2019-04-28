@@ -1,9 +1,9 @@
 [core]
-	editor = vim
+  editor = vim
   excludesfile = ~/.gitignore
   autocrlf = input
 [alias]
-	conflicted = !vim +Conflicted
+  conflicted = !vim +Conflicted
 [color]
   ui = auto
 [merge]
@@ -13,6 +13,6 @@
 [rebase]
   autosquash = true
 [include]
-	path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra

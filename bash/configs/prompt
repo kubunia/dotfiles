@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# TMUX autorun
-_not_inside_tmux() {
-  [[ -z "$TMUX" ]]
-}
-
-ensure_tmux_is_running() {
-  if _not_inside_tmux; then
-    tat
-  fi
-}
-
-# git status on bash prompt
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -29,14 +17,4 @@ git_status() {
   [[ $status || $stash ]] && echo "[$stash$status]"
 }
 
-
-# git alias function with default param
-g() {
-  if ! [ -d .git ]; then
-    echo 'No git repository'
-  elif [[ $# -eq 0 ]] ; then
-    git status -s
-  else
-    git $@
-  fi
-}
+export PS1="\[\e[32m\]\w\[\e[33m\]\$(parse_git_branch)\[\e[91m\]\$(git_status)\[\e[m\]: "

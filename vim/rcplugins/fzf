@@ -1,0 +1,31 @@
+" fzf - fuzzy finder
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
+
+let g:fzf_action = {
+  \ 'ctrl-x': 'delete',
+  \ 'ctrl-v': 'vsplit' }
+
+let g:fzf_files_options =
+  \ '--reverse ' .
+  \ '--preview "(bat --style=grid --color=always --line-range :300 {} ' .
+  \ '|| cat {}) 2> /dev/null | head -'.&lines.'" '.
+  \ '--preview-window right:60%'
+
+autocmd VimEnter * command! -bang -nargs=? Buffers call fzf#vim#buffers(<q-args>, {'options': '--no-preview'}, <bang>0)
+
+let g:fzf_layout = { 'down': '~30%' }
+
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
+
+" Match file names
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--no-preview --delimiter : --nth 4..'}, <bang>0)
+
+nnoremap <C-p> :Files<cr>
+nnoremap <C-q> :Buffers<CR>
+nnoremap <Leader>sw :Ag <C-R><C-W>
+
+" nnoremap <silent> <Leader>z :call fzf#vim#tags(expand('<cword>'), {'options': '--no-preview'})<CR>
+
+" vim:ft=vim

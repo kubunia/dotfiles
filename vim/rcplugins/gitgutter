@@ -1,0 +1,8 @@
+" Gitgutter - shows git diff in sign column
+
+Plug 'airblade/vim-gitgutter'
+
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+" vim:ft=vim

@@ -1,0 +1,7 @@
+" Sets timeout for moving hjkl and arrows
+
+Plug 'takac/vim-hardtime'
+
+let g:hardtime_default_on = 1
+
+" vim:ft=vim

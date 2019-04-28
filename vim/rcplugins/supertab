@@ -1,0 +1,5 @@
+" SuperTab - tab for all insert completion
+
+Plug 'ervandew/supertab'
+
+" vim:ft=vim

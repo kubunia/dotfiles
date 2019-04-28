@@ -1,0 +1,7 @@
+" Abolish - Coerce strings to different cases (and some other stuff)
+
+Plug 'tpope/tpope-vim-abolish'
+
+nmap  <Leader>sb :%Subvert/<C-r><C-w>//g<Left><Left>
+
+" vim:ft=vim

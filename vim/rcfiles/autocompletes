@@ -1,0 +1,5 @@
+" Autocomplete
+
+autocmd! FileType javascript UltiSnipsAddFiletypes javascript-es6-react
+
+" vim:ft=vim

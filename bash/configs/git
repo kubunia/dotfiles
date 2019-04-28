@@ -1,27 +1,17 @@
 #!/bin/bash
 
-alias c='clear'
-alias b='bundle exec'
-alias v='vim'
-alias bv='bundle exec vim'
-alias r='bundle exec rails'
-alias rc='bundle exec rails c'
-alias rct='bundle exec rails c -e test'
-alias dbc='bundle exec rails dbconsole'
-alias dbm='bundle exec rails db:migrate'
-alias dbr='bundle exec rails db:rollback'
-alias rs='bundle exec rspec'
+source /usr/share/bash-completion/completions/git
 
-# xclip clipboard
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+g() {
+  if ! [ -d .git ] && [[ $1 -ne 'init' ]]; then
+    echo 'No git repository'
+  elif [[ $# -eq 0 ]] ; then
+    git status -s
+  else
+    git $@
+  fi
+}
 
-# colorize grep
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
-
-# git aliases
 alias ga="git add"
 alias gaa="git add *"
 alias gc="git commit"
@@ -40,10 +30,8 @@ alias gb="git branch"
 alias gd="git diff"
 alias gcl="git clean -fi"
 
-# list git aliases
 alias galias="alias | grep git | grep -v galias | cut -d ' ' -f 2- | sed '/=/s//|/' | tr \"'\" \" \" | column -s \"|\" -t"
 
-# git aliases autocompletion
 __git_complete g __git_main
 __git_complete ga _git_add
 __git_complete gc _git_commit

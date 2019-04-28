@@ -1,0 +1,11 @@
+" EasyMotion - easier vim navigate with letters shorthand
+
+Plug 'easymotion/vim-easymotion'
+
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+
+nmap s <Plug>(easymotion-s)
+nmap q <Plug>(easymotion-overwin-f2)
+
+" vim:ft=vim

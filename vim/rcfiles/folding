@@ -1,0 +1,15 @@
+" Folding config
+
+set foldenable
+set foldmethod=indent
+set foldlevel=999
+
+" Toggle folds
+nnoremap <leader>ff za
+nnoremap <leader>FF zA
+
+"Maps for folding, unfolding all
+nnoremap <LEADER>fu zM<CR>
+nnoremap <LEADER>uf zR<CR>
+" vim:ft=vim
+

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Vim
+
+alias v="v"
+alias bv="bv"
+
+v() {
+  if [[ $# -eq 0 ]] ; then
+    vim $(fzf)
+  else
+    vim $@
+  fi
+}
+
+bv() {
+  if [[ $# -eq 0 ]] ; then
+    bundle e vim $(fzf)
+  else
+    bundle e vim $@
+  fi
+}

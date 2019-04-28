@@ -1,0 +1,10 @@
+source $HOME/.bash/bashenv
+
+stty -ixon
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+for config in $HOME/.bash/configs/*; do
+  source $config
+done

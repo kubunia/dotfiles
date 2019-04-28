@@ -1,0 +1,7 @@
+" CloseTag - for html tag autoclosing
+
+Plug 'alvan/vim-closetag'
+
+let g:closetag_filenames = '*.erb, *.js, *.jsx'
+
+" vim:ft=vim

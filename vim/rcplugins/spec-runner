@@ -1,0 +1,10 @@
+" Vim Spec Runner - Smart spec (rspec) runner
+
+Plug 'gabebw/vim-spec-runner'
+
+let g:spec_runner_dispatcher = "VtrSendCommand! bundle exec {command}"
+map <Leader>t <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunCurrentSpecFile
+map <Leader>u <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunFocusedSpec
+map <Leader>y <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunMostRecentSpec
+
+" vim:ft=vim

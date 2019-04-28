@@ -1,0 +1,7 @@
+" Buffkill - closing buffer without closing split
+
+Plug 'qpkorr/vim-bufkill'
+
+map <C-c> :BD<CR>
+
+" vim:ft=vim
