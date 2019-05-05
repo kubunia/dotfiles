@@ -7,7 +7,7 @@ alias bv="bv"
 
 v() {
   if [[ $# -eq 0 ]] ; then
-    vim $(fzf)
+    vim $(__fzf_preview)
   else
     vim $@
   fi
@@ -15,8 +15,12 @@ v() {
 
 bv() {
   if [[ $# -eq 0 ]] ; then
-    bundle e vim $(fzf)
+    bundle e vim $(__fzf_preview)
   else
     bundle e vim $@
   fi
+}
+
+__fzf_preview() {
+ fzf
 }

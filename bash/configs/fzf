@@ -3,9 +3,12 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+export FZF_DEFAULT_OPTS=''
 
-export FZF_DEFAULT_OPTS="
-  --reverse
-  --preview 'bat --color=always --style=header,grid --line-range :300 {} '
-  --preview-window top:60%
+alias fzf="
+  fzf \
+  --reverse \
+  --preview '(bat --color=always --style=header,grid --line-range :300 {} || \
+      cat {}) 2> /dev/null' \
+  --preview-window top:60% \
   --bind ctrl-n:down,ctrl-p:up"

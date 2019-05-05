@@ -28,6 +28,7 @@ alias gsu="git stash -u"
 alias gsp="git stash pop"
 alias gb="git branch"
 alias gd="git diff"
+alias grb="git rebase"
 alias gcl="git clean -fi"
 
 alias galias="alias | grep git | grep -v galias | cut -d ' ' -f 2- | sed '/=/s//|/' | tr \"'\" \" \" | column -s \"|\" -t"
@@ -42,4 +43,5 @@ __git_complete go _git_checkout
 __git_complete gr _git_reset
 __git_complete gs _git_stash
 __git_complete gd _git_diff
+__git_complete grb _git_rebase
 __git_complete gcl _git_clean
