@@ -16,13 +16,14 @@ autocmd VimResized * :wincmd =
 nnoremap <silent> <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <silent> <Leader>= :wincmd =<CR>
 
+
 " Open new split panes to right and bottom
 set splitbelow
 set splitright
 
 " Mark chars over 80
-highlight OverLength ctermbg=88 ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+highlight ColorColumn ctermbg=234 guibg=#592929
+let &colorcolumn=join(range(81,999),",")
 
 " Cursor
 set guicursor=a:blinkon2
