@@ -12,6 +12,15 @@ let g:NERDAltDelims_java = 1
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+let NERDTreeIgnore=[
+      \'node_modules[[dir]]',
+      \'vendor[[dir]]',
+      \'\.git[[dir]]',
+      \'log[[dir]]',
+      \'tmp[[dir]]',
+      \'storage[[dir]]'
+      \]
+
 
 nnoremap <silent> <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
 
