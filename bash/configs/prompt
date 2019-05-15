@@ -7,44 +7,11 @@ COLOR_OCHRE="\033[38;5;95m"
 COLOR_BLUE="\033[0;34m"
 COLOR_RESET="\033[0m"
 
-git_branch() {
-  echo "$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/')"
-}
-
-git_status() {
-  [[ $(git status 2> /dev/null)  ]]
-
-  if [ $? -ne 0 ]; then
-    return
-  fi
-
-  local status="${COLOR_OCHRE}[${COLOR_BLUE}$(git_stash)${COLOR_RED}"
-
-  if [[ $(git diff-index HEAD 2> /dev/null) ]]; then
-    status+="✘"
-  elif [[ $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-    status+="♦"
-  else
-    status+=$(echo -e "${COLOR_GREEN}✔")
-  fi
-
-  status+="${COLOR_OCHRE}]"
-  echo -e $status
-}
-
-git_stash() {
-  if [[ $(git stash list 2> /dev/null) ]]; then
-    echo ❄
-  fi
-}
-
 two_last_dirs() {
   pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's/ /\//' | sed "s/\(home\/$(whoami)\|$(whoami)\)/~/"
 }
 
 PS1="\[$COLOR_GREEN\]\$(two_last_dirs)\[$COLOR_YELLOW\]"
-PS1+="\$(git_branch)"
-PS1+="\$(git_status)"
 PS1+="\[$COLOR_GREEN\] ❱ \[$COLOR_RESET\]"
 
 export PS1
