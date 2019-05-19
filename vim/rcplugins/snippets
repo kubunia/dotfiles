@@ -4,9 +4,9 @@ Plug 'SirVer/ultisnips'
 
 let g:UltiSnipsSnippetsDir='~/.vim/snippets'
 let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsExpandTrigger = '<C-]>'
-let g:UltiSnipsJumpForwardTrigger = '<C-]>'
-let g:UltiSnipsJumpBackwardTriggeri = '<C-[>'
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+" let g:UltiSnipsJumpBackwardTriggeri = '<C-[>'
 
 nnoremap <leader>ue :UltiSnipsEdit<cr>
 

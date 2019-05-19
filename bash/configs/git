@@ -2,16 +2,7 @@
 
 source /usr/share/bash-completion/completions/git
 
-g() {
-  if ! [ -d .git ] && [[ $1 -ne 'init' ]]; then
-    echo 'No git repository'
-  elif [[ $# -eq 0 ]] ; then
-    git status -s
-  else
-    git $@
-  fi
-}
-
+alias g='g'
 alias ga="git add"
 alias gaa="git add *"
 alias gc="git commit"
@@ -22,7 +13,7 @@ alias gpl="git pull"
 alias go="git checkout"
 alias gob="git checkout -b"
 alias gr="git reset"
-alias gl="git log --pretty=format:\"%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]\" --decorate --date=short"
+alias gl="git log --pretty=format:\"%C(yellow)%h %C(magenta)%ad%Cred%d %Creset%s%Cblue [%cn]\" --decorate --date=short"
 alias gs="git stash"
 alias gsu="git stash -u"
 alias gsp="git stash pop"
@@ -43,5 +34,16 @@ __git_complete go _git_checkout
 __git_complete gr _git_reset
 __git_complete gs _git_stash
 __git_complete gd _git_diff
+__git_complete gb _git_branch
 __git_complete grb _git_rebase
 __git_complete gcl _git_clean
+
+g() {
+  if ! [ -d .git ] && [[ $1 -ne 'init' ]]; then
+    echo 'No git repository'
+  elif [[ $# -eq 0 ]] ; then
+    git status -s
+  else
+    git $@
+  fi
+}

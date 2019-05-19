@@ -41,11 +41,9 @@ snippet rw
 ##### RSpec #####
 #################
 snippet spec
-	require "${1:spec}_helper"
-
-	describe ${2:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
-		describe "${3:#method}" do
-			it "${4:docstring}" do
+	describe ${2:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', 'g')`} do
+		describe '${3:#method}' do
+			it '${4:docstring}' do
 				${5:expectations}
 			end
 		end
@@ -55,19 +53,19 @@ snippet cont
 		${0}
 	end
 snippet desc
-	describe "${1:#method}" do
-	  it "${2:docstring}" do
+	describe '${1:#method}' do
+	  it '${2:docstring}' do
 		  ${3:expectations}
 		end
 	end
 snippet it
-	it "${1:docstring}" do
+	it '${1:docstring}' do
 		${2:expectations}
 	end
 snippet iiexp
-	it { is_expected.to ${1:<what?>} }
+	it { is_expected.to ${1} }
 snippet exp
-	expect(${1}).to ${2:<what?>}
+	expect(${1}).to ${2}
 snippet agg
 	aggregate_failures '${1:message}' do
 		${0}

@@ -1,0 +1,5 @@
+" Auto commands
+
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" vim:ft=vim

@@ -12,6 +12,7 @@ let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#bracket_spacing = 'true'
 
 " autoformat on write
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.md,*.erb PrettierAsync
+let g:prettier#config#trailing_comma = 'none'
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.md,*.erb PrettierAsync
 
 " vim:ft=vim

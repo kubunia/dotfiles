@@ -12,6 +12,8 @@ nnoremap <Leader>vf :VtrFocusRunner<CR>
 nnoremap <Leader>va :call VtrAttach(n:count)
 nnoremap <silent> <Leader>va :<C-u>call VtrAttach(v:count)<CR>
 nnoremap <Leader>vc :VtrSendCommand
+nnoremap <Leader>vd :VtrSendCtrlD<cr>
+nnoremap <Leader>vl :VtrClearRunner<cr>
 
 function! VtrAttach(arg)
   execute ':VtrAttachToPane '.a:arg

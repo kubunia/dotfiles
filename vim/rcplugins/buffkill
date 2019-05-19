@@ -2,6 +2,6 @@
 
 Plug 'qpkorr/vim-bufkill'
 
-map <C-c> :BD<CR>
+map <silent> <C-c> :BD<CR>
 
 " vim:ft=vim

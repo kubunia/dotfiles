@@ -33,10 +33,6 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 " Uppercase
 vnoremap <C-u> U
 
-" " Change buffer
-" nnoremap <Tab> :bnext<CR>
-" nnoremap <S-Tab> :bprev<CR>
-
 " Ident enitre file
 nnoremap <Leader>i gg=G``
 

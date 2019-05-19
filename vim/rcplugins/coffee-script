@@ -1,0 +1,5 @@
+" Coffee script support
+
+Plug 'kchmck/vim-coffee-script'
+
+" vim:ft=vim

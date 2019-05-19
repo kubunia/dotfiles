@@ -8,8 +8,5 @@ set foldlevel=999
 nnoremap <leader>ff za
 nnoremap <leader>FF zA
 
-"Maps for folding, unfolding all
-nnoremap <LEADER>fu zM<CR>
-nnoremap <LEADER>uf zR<CR>
 " vim:ft=vim
 
