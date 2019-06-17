@@ -8,6 +8,6 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 " let g:UltiSnipsJumpBackwardTriggeri = '<C-[>'
 
-nnoremap <leader>ue :UltiSnipsEdit<cr>
+nnoremap <leader>es :UltiSnipsEdit<cr>
 
 " vim:ft=vim
