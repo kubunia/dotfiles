@@ -1,0 +1,8 @@
+" Vim subversive allows to substitute motion in other motion
+
+Plug 'svermeulen/vim-subversive'
+
+nmap m <plug>(SubversiveSubstituteRange)
+xmap m <plug>(SubversiveSubstituteRange)
+
+" vim:ft=vim

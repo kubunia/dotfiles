@@ -1,9 +1,0 @@
-" Blockle - toggle ruby block
-
-Plug 'vim-scripts/blockle.vim'
-
-let g:blockle_mapping = '<NOP>'
-
-map <Leader>bt :HardTimeOff<CR> :DelimitMateOff<CR> <Plug>BlockToggle :DelimitMateOn<CR> :HardTimeOn<CR>
-
-" vim:ft=vim
