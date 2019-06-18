@@ -2,7 +2,26 @@
 
 Plug 'svermeulen/vim-subversive'
 
+nnoremap <silent> <plug>(SubversiveSubstituteRange) :<c-u>call subversive#doubleMotion#preSubstitute(0, 1, 0, 0, 0)<cr>:set opfunc=subversive#doubleMotion#selectTextMotion<cr>g@
+xnoremap <silent> <plug>(SubversiveSubstituteRange) :<c-u>call subversive#doubleMotion#preSubstitute(0, 1, 0, 0, 0)<cr><esc>:call subversive#doubleMotion#selectTextMotion('char', 1)<cr>
+
+nnoremap <silent> <plug>(SubversiveSubstituteWordRange) :<c-u>call subversive#doubleMotion#preSubstitute(0, 1, 0, 1, 0)<cr>:set opfunc=subversive#doubleMotion#selectTextMotion<cr>g@iw
+
+nnoremap <silent> <plug>(SubversiveSubstituteRangeConfirm) :<c-u>call subversive#doubleMotion#preSubstitute(0, 1, 0, 0, 1)<cr>:set opfunc=subversive#doubleMotion#selectTextMotion<cr>g@
+xnoremap <silent> <plug>(SubversiveSubstituteRangeConfirm) :<c-u>call subversive#doubleMotion#preSubstitute(0, 1, 0, 0, 1)<cr><esc>:call subversive#doubleMotion#selectTextMotion('char', 1)<cr>
+
+nnoremap <silent> <plug>(SubversiveSubstituteWordRangeConfirm) :<c-u>call subversive#doubleMotion#preSubstitute(0, 1, 0, 1, 1)<cr>:set opfunc=subversive#doubleMotion#selectTextMotion<cr>g@iw
+
+nmap gr <plug>(SubversiveSubstitute)
+xmap gr <plug>(SubversiveSubstitute)
+nmap gR <plug>(SubversiveSubstituteToEndOfLine)
+
 nmap m <plug>(SubversiveSubstituteRange)
+nmap mr <plug>(SubversiveSubstituteRange)
 xmap m <plug>(SubversiveSubstituteRange)
+nmap mc <plug>(SubversiveSubstituteRangeConfirm)
+nmap M <plug>(SubversiveSubstituteWordRange)
+xmap M <plug>(SubversiveSubstituteWordRange)
+nmap Mc <plug>(SubversiveSubstituteWordRangeConfirm)
 
 " vim:ft=vim
