@@ -13,6 +13,6 @@ let g:prettier#config#bracket_spacing = 'true'
 
 " autoformat on write
 let g:prettier#config#trailing_comma = 'none'
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.md,*.erb PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.md,*.erb PrettierAsync
 
 " vim:ft=vim

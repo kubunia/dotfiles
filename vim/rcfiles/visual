@@ -28,4 +28,7 @@ let &colorcolumn=join(range(81,999),",")
 " Cursor
 set guicursor=a:blinkon2
 
+" ALE colors
+hi ALEWarning ctermbg=94
+
 " vim:ft=vim
