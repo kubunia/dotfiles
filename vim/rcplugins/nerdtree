@@ -26,7 +26,6 @@ nnoremap <silent> <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
 
 augroup nerdtreebindings
   autocmd!
-  autocmd FileType nerdtree HardTimeOff
   autocmd FileType nerdtree map <buffer> <C-c> <NOP>
   autocmd FileType nerdtree map <buffer> <C-f> <NOP>
   autocmd FileType nerdtree map <buffer> <C-p> <NOP>

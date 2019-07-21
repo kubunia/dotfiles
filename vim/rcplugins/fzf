@@ -25,6 +25,7 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--no-preview -
 nnoremap <C-p> :Files<cr>
 nnoremap <C-q> :Buffers<CR>
 nnoremap <Leader>sw :Ag <C-R><C-W>
+nnoremap \ :Ag<SPACE>
 
 " nnoremap <silent> <Leader>z :call fzf#vim#tags(expand('<cword>'), {'options': '--no-preview'})<CR>
 

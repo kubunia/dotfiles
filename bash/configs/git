@@ -22,7 +22,8 @@ alias gob="git checkout -b"
 alias gu="git reset"
 alias gres="git reset --soft HEAD^"
 
-alias gl="git log --pretty=format:\"%C(yellow)%h %C(magenta)%ad%Cred%d %Creset%s%Cblue [%cn]\" --decorate --date=short"
+alias gl="git log --pretty=format:\"%C(yellow)%h %C(magenta)%ad%Cred%d %Creset%s%Cblue [%cn]\" --decorate --date=short -20"
+alias gla="git log --pretty=format:\"%C(yellow)%h %C(magenta)%ad%Cred%d %Creset%s%Cblue [%cn]\" --decorate --date=short"
 alias glt='gl --graph --all'
 alias glg='git log -E -i --grep'
 alias gls='git log -S'
@@ -37,7 +38,6 @@ alias gsp="git stash pop"
 
 alias gb="git branch"
 alias gtrack='git branch -u'
-alias gbrem='git push origin :'
 
 alias gd="git diff"
 alias gdc="git diff --cached"
