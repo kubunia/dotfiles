@@ -34,4 +34,17 @@ autocmd TextChanged * call ale#Queue(0)
 let g:ale_lint_on_text_changed = 0
 " let g:ale_lint_on_insert_leave = 1
 
+command AleFixToggle :call AleFixToggle()
+map <silent> <F8> :AleFixToggle<cr>
+
+function! AleFixToggle()
+  if g:ale_fix_on_save
+    let g:ale_fix_on_save = 0
+    :echo 'Ale Fixing on save disabled'
+  else
+    let g:ale_fix_on_save = 1
+    :echo 'Ale Fixing on save enabled'
+  endif
+endfunction
+
 " vim:ft=vim

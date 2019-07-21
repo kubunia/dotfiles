@@ -8,8 +8,4 @@ map <Leader>t <Leader>vr <Plug>RunCurrentSpecFile
 map <Leader>u <Leader>vr <Plug>RunFocusedSpec
 map <Leader>y <Leader>vr <Plug>RunMostRecentSpec
 
-" map <Leader>t <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunCurrentSpecFile
-" map <Leader>u <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunFocusedSpec
-" map <Leader>y <Leader>vnor :wincmd _<CR>:wincmd \|<CR> <Plug>RunMostRecentSpec
-
 " vim:ft=vim

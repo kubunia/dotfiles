@@ -26,5 +26,6 @@ let g:rails_projections = {
       \ }
 
 noremap <Leader>av :AV<cr> :3q<cr>
+noremap <Leader>a :A<cr>
 
 " vim:ft=vim

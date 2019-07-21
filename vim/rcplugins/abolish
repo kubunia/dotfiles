@@ -4,7 +4,6 @@ Plug 'tpope/tpope-vim-abolish'
 
 nmap  <Leader>sb :%Subvert/<C-r><C-w>//g<Left><Left>
 
-" vim:ft=vim
 "
 " crs - snake_case
 " crm - MixedCase
@@ -14,3 +13,5 @@ nmap  <Leader>sb :%Subvert/<C-r><C-w>//g<Left><Left>
 " cr. - dot.case
 " cr<space> - space case
 " crt - Title Case
+
+" vim:ft=vim

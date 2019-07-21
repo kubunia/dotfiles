@@ -1,0 +1,8 @@
+" Auto-Pairs - autoclosin quotes, brackets
+
+Plug 'jiangmiao/auto-pairs'
+
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutFastWrap = '<C-w>'
+
+" vim:ft=vim

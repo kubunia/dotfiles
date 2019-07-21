@@ -50,6 +50,8 @@ alias grb="git rebase"
 alias gcl="git clean -fi"
 alias gmup='!git checkout master && git pull && git checkout -'
 
+alias conflicted="git conflicted"
+
 __git_complete g __git_main
 __git_complete ga _git_add
 __git_complete gc _git_commit
