@@ -2,4 +2,7 @@
 
 Plug 'tpope/vim-fugitive'
 
+" Autoclean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " vim:ft=vim

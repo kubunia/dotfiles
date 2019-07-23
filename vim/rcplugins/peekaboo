@@ -1,5 +1,0 @@
-" Peekaboo - extends registers
-
-Plug 'junegunn/vim-peekaboo'
-
-" vim:ft=vim

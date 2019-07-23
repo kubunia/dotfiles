@@ -54,6 +54,5 @@ set sidescroll=1
 set visualbell
 set vb t_vb=
 set autoread
-set clipboard=unnamedplus
 
 " vim:ft=vim

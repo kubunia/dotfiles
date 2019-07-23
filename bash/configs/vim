@@ -2,9 +2,6 @@
 
 # Vim
 
-alias v="v"
-alias bv="bv"
-
 v() {
   if [[ $# -eq 0 ]] ; then
     vim $(__fzf_preview)

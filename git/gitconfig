@@ -8,6 +8,8 @@
   ui = auto
 [merge]
   ff = only
+[push]
+  default = upstream
 [fetch]
   prune = true
 [rebase]

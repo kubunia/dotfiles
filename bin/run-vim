@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $( git ls-files $(git rev-parse --show-toplevel) | grep 'Gemfile$' ) ]] ; then
+  bv()
+else
+  v()
+fi
