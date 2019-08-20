@@ -37,10 +37,4 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-let g:airline_section_z = "%p%% : \ue0a1:%l/%L : %c"
-let g:airline_section_y = ''
-let g:airline_section_b = '%{ConflictedVersion()}
-      \%{airline#extensions#hunks#get_hunks()}
-      \ %{airline#extensions#branch#get_head()}'
-
 " vim:ft=vim

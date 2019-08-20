@@ -1,0 +1,7 @@
+" Sidebar tags shortcut
+
+Plug 'majutsushi/tagbar'
+
+nnoremap <silent> gt :TagbarOpenAutoClose<cr>
+
+" vim:ft=vim

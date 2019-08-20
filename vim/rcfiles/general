@@ -20,6 +20,7 @@ set formatoptions-=t                    " Don't auto-break long lines
 set smarttab
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
 set expandtab
 
 " Display extra whitespace

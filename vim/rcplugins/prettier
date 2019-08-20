@@ -14,9 +14,8 @@ let g:prettier#config#bracket_spacing = 'true'
 " do not add comma above last arg
 let g:prettier#config#trailing_comma = 'none'
 
-" autoformat on write
-let g:prettier#config#trailing_comma = 'none'
+" Print semicolons at end of line
 " let g:prettier#config#semi = 'true'
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.md,*.erb PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.md,*.erb PrettierAsync
 
 " vim:ft=vim

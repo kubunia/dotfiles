@@ -2,7 +2,8 @@
 
 Plug 'jiangmiao/auto-pairs'
 
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsMultilineClose = 0
 let g:AutoPairsShortcutFastWrap = '<C-w>'
 
 " vim:ft=vim
