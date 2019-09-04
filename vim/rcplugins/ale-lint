@@ -7,8 +7,8 @@ let g:ale_linters = {
  \ 'ruby': ['rubocop']
  \ }
 
-nmap <silent> [e <Plug>(ale_previous_wrap)
-nmap <silent> ]e <Plug>(ale_next_wrap)
+nmap <silent> [l <Plug>(ale_previous_wrap)
+nmap <silent> ]l <Plug>(ale_next_wrap)
 
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -32,7 +32,6 @@ autocmd InsertLeave * call ale#Queue(0)
 autocmd TextChanged * call ale#Queue(0)
 
 let g:ale_lint_on_text_changed = 0
-" let g:ale_lint_on_insert_leave = 1
 
 command AleFixToggle :call AleFixToggle()
 map <silent> <F8> :AleFixToggle<cr>

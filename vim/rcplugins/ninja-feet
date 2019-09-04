@@ -1,5 +1,0 @@
-" Ninja-feet - expands motion with ][ (start/end) of text object
-
-Plug 'tommcdo/vim-ninja-feet'
-
-" vim:ft=vim

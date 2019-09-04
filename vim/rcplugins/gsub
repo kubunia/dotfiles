@@ -4,6 +4,7 @@ Plug 'christoomey/gsub.vim'
 
 " Mappings to search for the <cword> or visual highlight, and run Gsearch
 nmap K *:Gsearch<cr>
+xmap K :<C-u>call VSetSearch()<CR>:Gsearch<SPACE><C-R>=@/<CR><CR>
 
 autocmd FileType gsub nnoremap <buffer> <cr><cr> :Gsub<cr>
 

@@ -30,9 +30,8 @@ nnoremap <Leader>gc :Files app/controllers/<CR>
 nnoremap <Leader>gv :Files app/views/<CR>
 nnoremap <Leader>gl :Files lib/<CR>
 nnoremap <Leader>gs :Files spec/<CR>
-nnoremap <Leader>sw :Ag <C-R><C-W>
-nnoremap \ :Ag<SPACE>
 
-nnoremap <silent> <Leader>z :call fzf#vim#tags(expand('<cword>'), {'options': '--no-preview'})<CR>
+nnoremap \ :Ag<SPACE>
+xnoremap \ :<C-u>call VSetSearch()<CR>:Ag<SPACE><C-R>=@/<CR><CR>
 
 " vim:ft=vim

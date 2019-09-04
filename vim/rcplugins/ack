@@ -2,12 +2,12 @@
 
 Plug 'mileszs/ack.vim'
 
-nmap <Leader>sc :Ack! <c-r>=expand('<cword>')<cr>
-vnoremap <Leader>sc :<C-u>call <sid>AckVisualSelection()<CR>
+nmap <Leader>sc :Ack <c-r>=expand('<cword>')<CR><CR>
+xmap <Leader>sc :<C-u>call <SID>AckVisualSelection()<CR>
 
 function! s:AckVisualSelection()
   normal! gvy
-  execute "Ack! '" . escape(@", "[]().*") . "'"
+  execute "Ack '" . escape(@", "[]().*") . "'"
 endfunction
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
