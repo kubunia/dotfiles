@@ -1,0 +1,5 @@
+" Exchange text
+
+Plug 'tommcdo/vim-exchange'
+
+" vim:ft=vim

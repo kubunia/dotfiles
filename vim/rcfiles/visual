@@ -4,6 +4,9 @@ syntax on
 
 colorscheme jellybeans
 
+" Colorize current line
+set cursorline
+
 hi TabLineFill cterm=none ctermfg=grey  ctermbg=cyan
 hi TabLine     cterm=none ctermfg=white ctermbg=cyan
 hi TabLineSel  cterm=none ctermfg=cyan ctermbg=white
@@ -30,5 +33,11 @@ set guicursor=a:blinkon2
 
 " ALE colors
 hi ALEWarning ctermbg=94
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * let &colorcolumn=join(range(81,999),",")
+    autocmd WinLeave * set colorcolumn=0
+augroup END
 
 " vim:ft=vim

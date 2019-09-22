@@ -5,6 +5,4 @@ set hlsearch
 set incsearch
 set smartcase
 
-nnoremap <Leader>ss :%s/\<<C-r><C-w>\>//g<Left><Left>
-
 " vim:ft=vim
