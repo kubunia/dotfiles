@@ -1,0 +1,156 @@
+global !p
+def rb_class(snip, type):
+	parts = vim.eval("naming#class_name(1)")
+
+	for idx, part in enumerate(parts):
+		if idx == (len(parts) - 1):
+			snip += snip.mkline("%s %s"%(type, part), '')
+		else:
+			snip += snip.mkline("module %s"%(part), '')
+		snip.shift()
+
+def rb_class_end(snip):
+	parts = vim.eval("naming#class_name(1)")
+	snip.shift(len(parts) - 1)
+
+	for idx, part in enumerate(parts):
+		snip += snip.mkline("end", '')
+		snip.unshift()
+
+def fix_indent():
+	vim.eval('feedkeys("\<c-f>")')
+
+endglobal
+
+snippet priv
+private
+
+${0}
+endsnippet
+
+snippet req
+require '${1}'
+
+${0}
+endsnippet
+
+snippet def
+def ${1:method_name}
+	${0}
+end
+endsnippet
+
+snippet "^class" "class" rA
+# frozen_string_literal: true
+`!p rb_class(snip, 'class')`
+`!p fix_indent()`${0}`!p rb_class_end(snip)`
+endsnippet
+
+snippet "^module" "module" rA
+# frozen_string_literal: true
+`!p rb_class(snip, 'module')`
+`!p fix_indent()`${0}`!p rb_class_end(snip)`
+endsnippet
+
+snippet defs
+def self.${1:class_method_name}
+	${0}
+end
+endsnippet
+
+snippet r
+attr_reader :${0:attr_names}
+endsnippet
+
+snippet w
+attr_writer :${0:attr_names}
+endsnippet
+
+snippet rw
+attr_accessor :${0:attr_names}
+endsnippet
+
+snippet del
+delegate :${1:method}, to: :${0:obj}
+endsnippet
+
+snippet b
+{ |${1:var}| ${0} }
+endsnippet
+
+snippet valp
+validates :${1:attr}, presence: true
+endsnippet
+
+snippet "\sinit" "" rA
+def initialize(${1:args})
+	${1/(\w*,?\s?)(?=$)?/@$1/g} = $1
+end
+
+private
+
+attr_reader $1
+endsnippet
+
+snippet call
+def self.call(${1:args})
+	new($1)
+end
+
+def initialize($1)
+	${1/(\w*,?\s?)(?=$)?/@$1/g} = $1
+end
+
+def call
+	${0: #call}
+end
+
+private
+
+attr_reader $1
+
+endsnippet
+
+#################
+##### RSpec #####
+#################
+
+snippet "^spec" "describe_spec" rA
+require '${1:rails_helper}'
+
+describe ${2:`!v naming#class_name()`} do
+	${0}
+end
+endsnippet
+
+snippet cont
+context '${1:message}' do
+	${0:${VISUAL: #assertions}}
+end
+endsnippet
+
+snippet desc
+describe '${1:#method}' do
+	${2:${VISUAL: #assertions}}
+end
+endsnippet
+
+snippet it
+it '${1:docstring}' do
+	${2:${VISUAL: #assertions}}
+end
+endsnippet
+
+snippet iiexp
+it { is_expected.to ${1} }
+endsnippet
+
+snippet exp
+expect(${1}).to ${2}
+endsnippet
+
+snippet agg "a" A
+aggregate_failures '${1:message}' do
+	${2:${VISUAL: #examples}}
+end
+endsnippet

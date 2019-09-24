@@ -6,11 +6,11 @@ Plug 'rhysd/vim-operator-surround'
 
 let g:surround_no_insert_mappings = 1
 
-map <silent>ysb <Plug>(operator-surround-append)<Plug>(textobj-anyblock-a)
+nmap <silent>ysb <Plug>(operator-surround-append)<Plug>(textobj-anyblock-a)
 nmap <silent>dsb <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
 nmap <silent>csb <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 
-map <silent>ysq <Plug>(operator-surround-append)<Plug>(textobj-quote-a)
+nmap <silent>ysq <Plug>(operator-surround-append)<Plug>(textobj-quote-a)
 nmap <silent>dsq <Plug>(operator-surround-delete)<Plug>(textobj-quote-a)
 nmap <silent>csq <Plug>(operator-surround-replace)<Plug>(textobj-quote-a)
 

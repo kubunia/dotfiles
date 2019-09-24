@@ -12,10 +12,6 @@ onoremap <C-@> <Esc>
 cnoremap <C-@> <C-c>
 inoremap <C-@> <Esc>
 
-" Unmap
-nnoremap Q <nop>
-nnoremap q <nop>
-
 " Convenience
 nnoremap H ^
 nnoremap L $
