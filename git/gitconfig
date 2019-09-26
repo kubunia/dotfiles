@@ -6,6 +6,19 @@
   conflicted = !vim +Conflicted
 [color]
   ui = auto
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
 [merge]
   ff = only
 [push]
