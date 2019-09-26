@@ -51,6 +51,9 @@ set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
 
+" break full word to new line
+set linebreak
+
 " Others
 set visualbell
 set vb t_vb=

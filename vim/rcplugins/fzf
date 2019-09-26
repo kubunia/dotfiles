@@ -3,9 +3,13 @@
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
+fun! s:ignore(lines)
+endfun
+
 let g:fzf_action = {
   \ 'ctrl-x': 'delete',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-Space': function('s:ignore') }
 
 let g:fzf_files_options =
   \ '--reverse ' .
@@ -30,7 +34,6 @@ nnoremap <Leader>gc :Files app/controllers/<CR>
 nnoremap <Leader>gv :Files app/views/<CR>
 nnoremap <Leader>gl :Files lib/<CR>
 nnoremap <Leader>gs :Files spec/<CR>
-
 nnoremap \ :Ag<SPACE>
 xnoremap \ :<C-u>call VSetSearch()<CR>:Ag<SPACE><C-R>=@/<CR><CR>
 

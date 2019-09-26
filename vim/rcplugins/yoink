@@ -1,4 +1,4 @@
-" Peekaboo - extends registers
+" Yoink
 
 Plug 'svermeulen/vim-yoink'
 
