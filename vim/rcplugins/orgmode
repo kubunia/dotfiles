@@ -1,0 +1,5 @@
+" Emacs OrgMode for vim
+
+Plug 'jceb/vim-orgmode'
+
+" vim:ft=vim
