@@ -1,10 +1,11 @@
 " ALE - Asynchronous linting engine
 
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'do':  'yarn global add prettier' }
 
 let g:ale_linters = {
  \ 'javascript': ['eslint', 'prettier'],
- \ 'ruby': ['rubocop', 'standardrb']
+ \ 'json': ['eslint', 'prettier'],
+ \ 'ruby': ['rubocop', 'standardrb'],
  \ }
 
 nmap <silent> [l <Plug>(ale_previous_wrap)
@@ -13,6 +14,7 @@ nmap <silent> ]l <Plug>(ale_next_wrap)
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['eslint', 'prettier'],
+\ 'json': ['eslint', 'prettier'],
 \ 'ruby': ['rubocop', 'standardrb'],
 \}
 
