@@ -1,11 +1,5 @@
 " Rails - Add Rails navigation and related commands
 
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-projectionist'
-
-command! OV only|AV
-
-noremap <Leader>av :only<cr> :AV<cr>
-noremap <Leader>rv :only<cr> :RV<cr>
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
 " vim:ft=vim

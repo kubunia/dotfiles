@@ -1,5 +1,5 @@
 " Ruby - More up to date Ruby filetype settings
 
-Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
 " vim:ft=vim

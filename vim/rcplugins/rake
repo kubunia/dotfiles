@@ -1,5 +1,5 @@
 " Rake - Additional Ruby smarts in Vim
 
-Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rake', { 'for': 'ruby' }
 
 " vim:ft=vim

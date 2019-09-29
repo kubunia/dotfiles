@@ -1,6 +1,6 @@
 " Rfactory - Rapid navigation to FactoryGirl factories ala Rails.vim
 
-Plug 'christoomey/vim-rfactory'
+Plug 'christoomey/vim-rfactory', { 'for': 'ruby' }
 
 nnoremap <leader>gf :call <sid>SmartSplit()<cr>
 
