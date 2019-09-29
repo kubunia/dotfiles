@@ -1,0 +1,26 @@
+" Async completion
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+vmap <C-j> <Plug>(coc-snippets-select)
+
+inoremap <silent><expr> <C-l>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ coc#refresh()
+
+inoremap <silent><expr> <C-k>
+      \ pumvisible() ? "\<C-p>" :
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-previous',''])\<CR>"
+
+inoremap <silent><expr> <C-j>
+      \ pumvisible() ? "\<C-n>" :
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-next',''])\<CR>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" vim:ft=vim

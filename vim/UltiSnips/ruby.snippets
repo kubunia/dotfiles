@@ -1,24 +1,28 @@
 global !p
 def rb_class(snip, type):
 	parts = vim.eval("naming#class_name(1)")
+	shiftwidth = int(vim.eval("&shiftwidth"))
 
 	for idx, part in enumerate(parts):
+		shift = shiftwidth * idx * ' '
+
 		if idx == (len(parts) - 1):
-			snip += snip.mkline("%s %s"%(type, part), '')
+			snip.rv += "\n" + snip.mkline("%s %s"%(type, part), shift)
+			snip.rv += "\n" + snip.mkline('', shift + ' ' * shiftwidth)
 		else:
-			snip += snip.mkline("module %s"%(part), '')
+			snip.rv += "\n" + snip.mkline("module %s"%(part), shift)
 		snip.shift()
 
 def rb_class_end(snip):
 	parts = vim.eval("naming#class_name(1)")
-	snip.shift(len(parts) - 1)
+	snip.rv = ''
 
 	for idx, part in enumerate(parts):
-		snip += snip.mkline("end", '')
+		shift = int(vim.eval("&shiftwidth"))* (len(parts) - 1 - idx) * ' '
+		if idx != 0:
+			snip.rv += "\n"
+		snip.rv +=  snip.mkline("end", shift)
 		snip.unshift()
-
-def fix_indent():
-	vim.eval('feedkeys("\<c-f>")')
 
 endglobal
 
@@ -40,16 +44,16 @@ def ${1:method_name}
 end
 endsnippet
 
-snippet "^class" "class" rA
+snippet class
 # frozen_string_literal: true
-`!p rb_class(snip, 'class')`
-`!p fix_indent()`${0}`!p rb_class_end(snip)`
+`!p rb_class(snip, 'class')`${0}
+`!p rb_class_end(snip)`
 endsnippet
 
-snippet "^module" "module" rA
+snippet module
 # frozen_string_literal: true
-`!p rb_class(snip, 'module')`
-`!p fix_indent()`${0}`!p rb_class_end(snip)`
+`!p rb_class(snip, 'module')`${0}
+`!p rb_class_end(snip)`
 endsnippet
 
 snippet defs
@@ -82,9 +86,9 @@ snippet valp
 validates :${1:attr}, presence: true
 endsnippet
 
-snippet "\sinit" "" rA
+snippet init
 def initialize(${1:args})
-	${1/(\w*,?\s?)(?=$)?/@$1/g} = $1
+	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
 end
 
 private
@@ -98,7 +102,7 @@ def self.call(${1:args})
 end
 
 def initialize($1)
-	${1/(\w*,?\s?)(?=$)?/@$1/g} = $1
+	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
 end
 
 def call
@@ -115,7 +119,7 @@ endsnippet
 ##### RSpec #####
 #################
 
-snippet "^spec" "describe_spec" rA
+snippet spec
 require '${1:rails_helper}'
 
 describe ${2:`!v naming#class_name()`} do

@@ -1,0 +1,16 @@
+{
+  "coc": { "preferences": { "snippetIndicator": "" } },
+  "snippets": {
+    "ultisnips": {
+      "directories": ["UltiSnips", "plugged/vim-go/gosnippets/UltiSnips"]
+    }
+  },
+  "suggest": { "noselect": false },
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}

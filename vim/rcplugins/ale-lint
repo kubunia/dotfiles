@@ -37,6 +37,7 @@ let g:ale_lint_on_text_changed = 0
 
 command AleFixToggle :call AleFixToggle()
 map <silent> <F8> :AleFixToggle<cr>
+map <silent><leader>p :ALEFix<cr>
 
 function! AleFixToggle()
   if g:ale_fix_on_save
