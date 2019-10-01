@@ -5,7 +5,7 @@
       "directories": ["UltiSnips", "plugged/vim-go/gosnippets/UltiSnips"]
     }
   },
-  "suggest": { "noselect": false },
+  "suggest": { "noselect": true, "acceptSuggestionOnCommitCharacter": true },
   "languageserver": {
     "golang": {
       "command": "gopls",

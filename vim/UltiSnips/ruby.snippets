@@ -26,77 +26,91 @@ def rb_class_end(snip):
 
 endglobal
 
-snippet priv
+snippet priv "" b
 private
 
 ${0}
 endsnippet
 
-snippet req
+snippet req "" b
 require '${1}'
 
 ${0}
 endsnippet
 
-snippet def
+snippet def "" b
 def ${1:method_name}
 	${0}
 end
 endsnippet
 
-snippet class
+snippet class "" b
 # frozen_string_literal: true
 `!p rb_class(snip, 'class')`${0}
 `!p rb_class_end(snip)`
 endsnippet
 
-snippet module
+snippet module "" b
 # frozen_string_literal: true
 `!p rb_class(snip, 'module')`${0}
 `!p rb_class_end(snip)`
 endsnippet
 
-snippet defs
-def self.${1:class_method_name}
+snippet "(?<=def\s)self" "" r
+self.${1:class_method_name}
 	${0}
 end
 endsnippet
 
-snippet r
+snippet r "" b
 attr_reader :${0:attr_names}
 endsnippet
 
-snippet w
+snippet w "" b
 attr_writer :${0:attr_names}
 endsnippet
 
-snippet rw
+snippet rw "" b
 attr_accessor :${0:attr_names}
 endsnippet
 
-snippet del
+snippet del "" b
 delegate :${1:method}, to: :${0:obj}
 endsnippet
 
-snippet b
+snippet "(?<=\w\s)b" "" r
 { |${1:var}| ${0} }
 endsnippet
 
-snippet valp
+snippet "(?<=(\w|\))\s){" "" r
+{ |${1:var}| ${0}
+endsnippet
+
+snippet valp "" b
 validates :${1:attr}, presence: true
 endsnippet
 
-snippet init
+snippet "(?<=def\s)initialize" "" r
+initialize(${1:args})
+	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
+end
+
+private
+
+attr_reader ${1/(\w+,?\s?)(?=$)?/:$1/g}
+endsnippet
+
+snippet init "" b
 def initialize(${1:args})
 	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
 end
 
 private
 
-attr_reader $1
+attr_reader ${1/(\w+,?\s?)(?=$)?/:$1/g}
 endsnippet
 
-snippet call
+snippet call "" b
 def self.call(${1:args})
 	new($1)
 end
@@ -119,7 +133,7 @@ endsnippet
 ##### RSpec #####
 #################
 
-snippet spec
+snippet spec "" b
 require '${1:rails_helper}'
 
 describe ${2:`!v naming#class_name()`} do
@@ -127,33 +141,33 @@ describe ${2:`!v naming#class_name()`} do
 end
 endsnippet
 
-snippet cont
+snippet cont "" b
 context '${1:message}' do
 	${0:${VISUAL: #assertions}}
 end
 endsnippet
 
-snippet desc
+snippet desc "" b
 describe '${1:#method}' do
 	${2:${VISUAL: #assertions}}
 end
 endsnippet
 
-snippet it
+snippet it "" b
 it '${1:docstring}' do
 	${2:${VISUAL: #assertions}}
 end
 endsnippet
 
-snippet iiexp
+snippet iiexp "" b
 it { is_expected.to ${1} }
 endsnippet
 
-snippet exp
+snippet exp "" b
 expect(${1}).to ${2}
 endsnippet
 
-snippet agg "a" A
+snippet agg "" b
 aggregate_failures '${1:message}' do
 	${2:${VISUAL: #examples}}
 end
