@@ -1,8 +1,18 @@
 {
-  "coc": { "preferences": { "snippetIndicator": "" } },
+  "coc": {
+    "preferences": {
+      "snippetIndicator": "",
+      "diagnostic": { "displayByAle": true }
+    }
+  },
   "snippets": {
     "ultisnips": {
       "directories": ["UltiSnips", "plugged/vim-go/gosnippets/UltiSnips"]
+    },
+    "extends": {
+      "javascriptreact": ["javascript"],
+      "typescriptreact": ["javascript"],
+      "typescript": ["javascript"]
     }
   },
   "suggest": { "noselect": true, "acceptSuggestionOnCommitCharacter": true },

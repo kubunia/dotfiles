@@ -3,6 +3,7 @@
 Plug 'SirVer/ultisnips'
 
 let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsSnippetsDir = "$HOME/.vim/UltiSnips/"
 
 nnoremap <leader>es :UltiSnipsEdit<cr>
 

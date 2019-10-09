@@ -39,4 +39,13 @@ nnoremap <leader><leader> <C-^>
 " Close quickfix split
 nnoremap <Leader>cc :cclose<cr>
 
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
 " vim:ft=vim

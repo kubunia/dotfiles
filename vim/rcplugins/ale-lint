@@ -1,6 +1,8 @@
 " ALE - Asynchronous linting engine
 
-Plug 'w0rp/ale', { 'do':  'yarn global add prettier' }
+Plug 'w0rp/ale', { 'do':  'yarn global add prettier eslint eslint-config-airbnb
+      \ && yarn global add eslint-plugin-jsx-a11y@^2.0.0
+      \ eslint-plugin-react eslint-plugin-import babel-eslint' }
 
 let g:ale_linters = {
  \ 'javascript': ['eslint', 'prettier'],
@@ -14,6 +16,7 @@ nmap <silent> ]l <Plug>(ale_next_wrap)
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['eslint', 'prettier'],
+\ 'jsx': ['eslint', 'prettier'],
 \ 'json': ['eslint', 'prettier'],
 \ 'ruby': ['rubocop', 'standardrb'],
 \}
@@ -37,7 +40,7 @@ let g:ale_lint_on_text_changed = 0
 
 command AleFixToggle :call AleFixToggle()
 map <silent> <F8> :AleFixToggle<cr>
-map <silent><leader>p :ALEFix<cr>
+map <silent><leader>p :ALEFix<cr>:echo 'Linted!'<cr>
 
 function! AleFixToggle()
   if g:ale_fix_on_save

@@ -1,0 +1,27 @@
+snippet imp "import" b
+import ${1:name} = from '${2:path}/$1'
+endsnippet
+
+snippet req "require" b
+const ${1:name} = require('${2:package}')
+endsnippet
+
+snippet fun "function" b
+function ${1:function_name} (${2:argument}) {
+	${VISUAL}$0
+}
+endsnippet
+
+# TESTING
+
+snippet desc "" b
+describe("${1:name}", () => {
+	${2:VISUAL}
+})
+
+endsnippet
+snippet it "" b
+it("${1:describtion}", () => {
+	${2:assertions}
+})
+endsnippet
