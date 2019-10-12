@@ -1,5 +1,7 @@
 " Emacs OrgMode for vim
 
 Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'org' }
 
 " vim:ft=vim
