@@ -36,7 +36,8 @@ nnoremap <Leader>i gg=G``
 " Switch between the last two files
 nnoremap <leader><leader> <C-^>
 
-" Close quickfix split
+" Quickfix split
+nnoremap <Leader>co :copen<cr>
 nnoremap <Leader>cc :cclose<cr>
 
 " You will have bad experience for diagnostic messages when it's default 4000.

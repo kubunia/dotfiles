@@ -3,19 +3,21 @@
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 
-nnoremap <Leader>vr :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<CR>
 nnoremap <Leader>vk :VtrKillRunner<CR>
 nnoremap <Leader>vs :VtrSendLinesToRunner<CR>
 vnoremap <Leader>vs :VtrSendLinesToRunner<CR>
 nnoremap <Leader>vf :VtrFocusRunner<CR>
-nnoremap <silent> <Leader>va :<C-u>call VtrAttach(v:count)<CR>
-nnoremap <Leader>vc :VtrSendCommand<SPACE>
+nnoremap <silent> <Leader>va :<C-u>execute 'VtrAttachToPane' . v:count<CR>
+nnoremap <Leader>vc :call TmuxSendCommand()<cr>
 nnoremap <Leader>vd :VtrSendCtrlD<cr>
 nnoremap <Leader>vl :VtrClearRunner<cr>
-nnoremap <Leader>vb :VtrSendCommand yarn build <cr>
 
-function! VtrAttach(arg)
-  execute ':VtrAttachToPane '.a:arg
+function! TmuxSendCommand()
+  call inputsave()
+  let name = input('Command: ')
+  call inputrestore()
+
+  execute(':VtrSendCommand ' . name)
 endfunction
 
 " vim:ft=vim
