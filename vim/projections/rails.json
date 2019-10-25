@@ -30,6 +30,30 @@
   "spec/presenters/*_presenter_spec.rb": {
     "alternate": "app/presenters/{}_presenter.rb"
   },
+  "app/queries/*_query.rb": {
+    "command": "query",
+    "related": ["app/models/{}.rb"],
+    "test": ["spec/queries/{}_query_spec.rb", "test/queries/{}_query_test.rb"],
+    "alternate": [
+      "spec/queries/{}_query_spec.rb",
+      "test/queries/{}_query_test.rb"
+    ]
+  },
+  "spec/queries/*_query_spec.rb": {
+    "alternate": "app/queries/{}_query.rb"
+  },
+  "app/reports/*_report.rb": {
+    "command": "query",
+    "related": ["app/models/{}.rb"],
+    "test": ["spec/reports/{}_query_spec.rb", "test/reports/{}_query_test.rb"],
+    "alternate": [
+      "spec/reports/{}_query_spec.rb",
+      "test/reports/{}_query_test.rb"
+    ]
+  },
+  "spec/reports/*_query_spec.rb": {
+    "alternate": "app/reports/{}_report.rb"
+  },
   "app/policies/*_policy.rb": {
     "command": "policy",
     "related": ["app/models/{}.rb"],

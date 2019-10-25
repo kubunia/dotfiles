@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 color_escape_codes = {
   black: "\033[0;30m",
   red: "\033[0;31m",
@@ -21,5 +23,15 @@ if defined? Rails
     color = env_colors.fetch(Rails.env, color_escape_codes[:reset])
     colored_environment_name = "#{color}#{Rails.env}#{color_escape_codes[:reset]}"
     "(#{colored_environment_name}) #{obj}:#{nest_level}> "
+  end
+end
+
+class Object
+  def methods(arg = true)
+    if arg == true || !arg
+      super
+    else
+      super.select { |method| method.match? arg }
+    end
   end
 end
