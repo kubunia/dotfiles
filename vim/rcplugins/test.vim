@@ -23,4 +23,10 @@ function! test#SwapTestRunner()
   endif
 endfunction
 
+let test#strategy = {
+  \ 'nearest': 'vtr',
+  \ 'file': 'vtr',
+  \ 'suite':   'dispatch',
+\}
+
 " vim:ft=vim
