@@ -16,8 +16,7 @@ alias gphf="git push --force-with-lease"
 alias gpl="git pull"
 alias gplrb="git pull --rebase"
 
-alias go="git checkout"
-alias gob="git checkout -b"
+alias gco="git checkout"
 
 alias gu="git reset"
 alias gres="git reset --soft HEAD^"
@@ -29,8 +28,6 @@ alias glg='git log -E -i --grep'
 alias gls='git log -S'
 alias glf='git log --oneline --'
 
-alias gref='git reflog'
-
 alias gs="git stash"
 alias gsu="git stash -u"
 alias gsg="git stash -u --keep-index"
@@ -39,7 +36,6 @@ alias gsp="git stash pop"
 alias gsl="git stash list"
 
 alias gb="git branch"
-alias gtrack='git branch -u'
 
 alias gd="git diff --color=always"
 alias gdc="git diff --cached --color=always"
@@ -62,20 +58,18 @@ __git_complete gca _git_commit
 __git_complete gph _git_push
 __git_complete gbrem _git_push
 __git_complete gpl _git_pull
-__git_complete go _git_checkout
+__git_complete gco _git_checkout
 __git_complete gr _git_reset
 __git_complete gs _git_stash
 __git_complete gd _git_diff
 __git_complete gb _git_branch
-__git_complete gtrack _git_branch
 __git_complete grb _git_rebase
 __git_complete gcl _git_clean
-__git_complete gref _git_reflog
 __git_complete gd _git_diff
 __git_complete gcp _git_cherry_pick
 
 g() {
-  if ! [ -d .git ] && [[ $1 -ne 'init' ]]; then
+  if ! [ -d .git ] && [ "$1" != 'init' ]; then
     echo 'No git repository'
   elif [[ $# -eq 0 ]] ; then
     git status -s
