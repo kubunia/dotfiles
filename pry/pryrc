@@ -31,7 +31,7 @@ class Object
     if arg == true || !arg
       super
     else
-      super.select { |method| method.match? arg }
+      super.grep arg
     end
   end
 end

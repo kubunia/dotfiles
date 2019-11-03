@@ -6,6 +6,7 @@ Plug 'christoomey/vim-tmux-runner'
 nnoremap <Leader>vk :VtrKillRunner<CR>
 nnoremap <Leader>vs :VtrSendLinesToRunner<CR>
 vnoremap <Leader>vs :VtrSendLinesToRunner<CR>
+nnoremap <Leader>ve :VtrSendFile<CR>
 nnoremap <Leader>vf :VtrFocusRunner<CR>
 nnoremap <silent> <Leader>va :<C-u>execute 'VtrAttachToPane' . v:count<CR>
 nnoremap <Leader>vc :call TmuxSendCommand()<cr>

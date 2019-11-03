@@ -7,6 +7,7 @@ ln -sfn $DIR/git/gitconfig $HOME/.gitconfig
 ln -sfn $DIR/psql/psqlrc $HOME/.psqlrc
 ln -sfn $DIR/rspec/rspec $HOME/.rspec
 ln -sfn $DIR/tmux/tmux.conf $HOME/.tmux.conf
+ln -sfn $DIR/pry/pryrc $HOME/.pryrc
 ln -sfn $DIR/vim $HOME/.vim
 echo 'Symlinks created'
 
