@@ -40,13 +40,6 @@ nnoremap <leader><leader> <C-^>
 nnoremap <Leader>co :copen<cr>
 nnoremap <Leader>cc :cclose<cr>
 
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
+nnoremap Q <NOP>
 
 " vim:ft=vim
