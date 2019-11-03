@@ -12,7 +12,8 @@
     "extends": {
       "javascriptreact": ["javascript"],
       "typescriptreact": ["javascript"],
-      "typescript": ["javascript"]
+      "typescript": ["javascript"],
+      "ruby": ["rails"]
     }
   },
   "suggest": { "noselect": true, "acceptSuggestionOnCommitCharacter": true },

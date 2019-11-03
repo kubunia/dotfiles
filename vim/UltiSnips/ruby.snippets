@@ -1,6 +1,6 @@
 global !p
 def rb_class(snip, type):
-	parts = vim.eval("naming#class_name(1)")
+	parts = vim.eval("ruby#class_name(1)")
 	shiftwidth = int(vim.eval("&shiftwidth"))
 
 	for idx, part in enumerate(parts):
@@ -14,7 +14,7 @@ def rb_class(snip, type):
 		snip.shift()
 
 def rb_class_end(snip):
-	parts = vim.eval("naming#class_name(1)")
+	parts = vim.eval("ruby#class_name(1)")
 	snip.rv = ''
 
 	for idx, part in enumerate(parts):
@@ -83,11 +83,7 @@ snippet "(?<=\w\s)b" "" r
 endsnippet
 
 snippet "(?<=(\w|\))\s){" "" r
-{ |${1:var}| ${0}
-endsnippet
-
-snippet valp "" b
-validates :${1:attr}, presence: true
+{ |${1:var}| ${0} 
 endsnippet
 
 snippet "(?<=def\s)initialize" "" r
@@ -136,7 +132,7 @@ endsnippet
 snippet spec "" b
 require '${1:rails_helper}'
 
-describe ${2:`!v naming#class_name()`} do
+describe ${2:`!v ruby#class_name()`} do
 	${0}
 end
 endsnippet
