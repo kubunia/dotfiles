@@ -1,8 +1,8 @@
 {
   "lib/*.rb": {
     "command": "lib",
-    "test": ["spec/lib/{}_spec.rb"],
-    "alternate": ["spec/lib/{}_spec.rb"]
+    "test": ["spec/{}_spec.rb"],
+    "alternate": ["spec/{}_spec.rb"]
   },
   "spec/lib/*_spec.rb": {
     "command": "spec",
