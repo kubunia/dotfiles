@@ -23,5 +23,7 @@ nmap <silent>dse <Plug>(operator-surround-delete)<Plug>(textobj-entire-i)
 nmap <silent>cse <Plug>(operator-surround-replace)<Plug>(textobj-entire-i)
 
 nmap ysw ysiw
+nmap <silent>y' ysiw'
+nmap <silent>y" ysiw"
 
 " vim:ft=vim
