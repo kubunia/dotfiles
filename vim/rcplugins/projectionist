@@ -1,8 +1,26 @@
 Plug 'tpope/vim-projectionist'
 
-command! OV only|AV
+fun! s:alternate()
+  let path = ''
 
-noremap <Leader>av :only<cr> :AV<cr>
-noremap <Leader>rv :only<cr> :RV<cr>
+  for [root, value] in projectionist#query('alternate')
+    let path = value
+    break
+  endfor
+
+  if(len(path) < 2)
+    exec 'vs' path[0]
+  else
+    only|AV
+  endif
+endfun
+
+command! ROV silent only|RV
+command! AOV silent only|call s:alternate()
+
+noremap <Leader>av :AOV<cr>
+noremap <Leader>rv :ROV<cr>
+
+autocmd User ProjectionistDetect :call projections#set_projections(&filetype)
 
 " vim:ft=vim

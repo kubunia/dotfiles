@@ -3,29 +3,29 @@
     "command": "request",
     "test": [
       "spec/requests/{}_spec.rb",
-      "spec/controllers/{}_controller_spec.rb",
-      "test/controllers/{}_controller_test.rb"
+      "spec/controllers/{}_controller_spec.rb"
     ],
     "alternate": [
       "spec/requests/{}_spec.rb",
-      "spec/controllers/{}_controller_spec.rb",
-      "test/controllers/{}_controller_test.rb"
+      "spec/controllers/{}_controller_spec.rb"
     ]
   },
   "spec/requests/*_spec.rb": {
     "alternate": "app/controllers/{}_controller.rb"
   },
+  "app/models/*.rb": {
+    "command": "model",
+    "test": ["spec/models/{}_spec.rb"],
+    "alternate": ["spec/models/{}_spec.rb"]
+  },
+  "spec/models/*_spec.rb": {
+    "alternate": "app/models/{}.rb"
+  },
   "app/presenters/*_presenter.rb": {
     "command": "presenter",
     "related": ["app/models/{}.rb"],
-    "test": [
-      "spec/presenters/{}_presenter_spec.rb",
-      "test/presenters/{}_presenter_test.rb"
-    ],
-    "alternate": [
-      "spec/presenters/{}_presenter_spec.rb",
-      "test/presenters/{}_presenter_test.rb"
-    ]
+    "test": ["spec/presenters/{}_presenter_spec.rb"],
+    "alternate": ["spec/presenters/{}_presenter_spec.rb"]
   },
   "spec/presenters/*_presenter_spec.rb": {
     "alternate": "app/presenters/{}_presenter.rb"
@@ -33,54 +33,25 @@
   "app/queries/*_query.rb": {
     "command": "query",
     "related": ["app/models/{}.rb"],
-    "test": ["spec/queries/{}_query_spec.rb", "test/queries/{}_query_test.rb"],
-    "alternate": [
-      "spec/queries/{}_query_spec.rb",
-      "test/queries/{}_query_test.rb"
-    ]
+    "test": ["spec/queries/{}_query_spec.rb"],
+    "alternate": ["spec/queries/{}_query_spec.rb"]
   },
   "spec/queries/*_query_spec.rb": {
     "alternate": "app/queries/{}_query.rb"
   },
-  "app/reports/*_report.rb": {
-    "command": "query",
-    "related": ["app/models/{}.rb"],
-    "test": ["spec/reports/{}_query_spec.rb", "test/reports/{}_query_test.rb"],
-    "alternate": [
-      "spec/reports/{}_query_spec.rb",
-      "test/reports/{}_query_test.rb"
-    ]
-  },
-  "spec/reports/*_query_spec.rb": {
-    "alternate": "app/reports/{}_report.rb"
-  },
   "app/policies/*_policy.rb": {
     "command": "policy",
     "related": ["app/models/{}.rb"],
-    "test": [
-      "spec/policies/{}_policy_spec.rb",
-      "test/policies/{}_policy_test.rb"
-    ],
-    "alternate": [
-      "spec/policies/{}_policy_spec.rb",
-      "test/policies/{}_policy_test.rb"
-    ]
+    "test": ["spec/policies/{}_policy_spec.rb"],
+    "alternate": ["spec/policies/{}_policy_spec.rb"]
   },
   "spec/policies/*_policy_spec.rb": {
     "alternate": "app/policies/{}_policy.rb"
   },
-
-
   "lib/*.rb": {
     "command": "lib",
-    "test": [
-      "spec/lib/{}_spec.rb",
-      "test/lib/{}_test.rb"
-    ],
-    "alternate": [
-      "spec/lib/{}_spec.rb",
-      "test/lib/{}_test.rb"
-    ]
+    "test": ["spec/lib/{}_spec.rb"],
+    "alternate": ["spec/lib/{}_spec.rb"]
   },
   "spec/lib/*_spec.rb": {
     "alternate": "lib/{}.rb"
