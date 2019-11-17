@@ -4,14 +4,19 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 
 nnoremap <Leader>vk :VtrKillRunner<CR>
-nnoremap <Leader>vs :VtrSendLinesToRunner<CR>
-vnoremap <Leader>vs :VtrSendLinesToRunner<CR>
 nnoremap <Leader>ve :VtrSendFile<CR>
 nnoremap <Leader>vf :VtrFocusRunner<CR>
 nnoremap <silent> <Leader>va :<C-u>execute 'VtrAttachToPane' . v:count<CR>
 nnoremap <Leader>vc :call TmuxSendCommand()<cr>
 nnoremap <Leader>vd :VtrSendCtrlD<cr>
 nnoremap <Leader>vl :VtrClearRunner<cr>
+
+noremap <C-f> :VtrSendLinesToRunner<cr>
+
+nnoremap <leader>v0 :VtrAttachToPane 0<cr>:call system("tmux clock-mode -t 0 && sleep 0.1 && tmux send-keys -t 0 q")<cr>
+nnoremap <leader>v1 :VtrAttachToPane 1<cr>:call system("tmux clock-mode -t 1 && sleep 0.1 && tmux send-keys -t 1 q")<cr>
+nnoremap <leader>v2 :VtrAttachToPane 2<cr>:call system("tmux clock-mode -t 2 && sleep 0.1 && tmux send-keys -t 2 q")<cr>
+nnoremap <leader>v3 :VtrAttachToPane 3<cr>:call system("tmux clock-mode -t 3 && sleep 0.1 && tmux send-keys -t 3 q")<cr>
 
 function! TmuxSendCommand()
   call inputsave()
