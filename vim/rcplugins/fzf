@@ -37,6 +37,9 @@ nnoremap <Leader>gs :Files spec/<CR>
 nnoremap \ :Ag<SPACE>
 xnoremap \ :<C-u>call VSetSearch()<CR>:Ag<SPACE><C-R>=@/<CR><CR>
 
+nnoremap <leader>\ :Rag<SPACE>
+xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
+
 function! s:ag_raw(command_suffix, ...)
  return call('fzf#vim#grep', extend(['ag --nogroup --column --color '.a:command_suffix, 1], a:000))
 endfunction
