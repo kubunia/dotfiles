@@ -44,12 +44,12 @@ alias gcp='git cherry-pick'
 alias gcat='git cat-file'
 
 alias grb="git rebase"
-alias grbc="git rebase --continue"
 
+alias gcon='git continue'
 alias gabort='git abort'
 alias gcl="git clean -fi"
 
-alias conflicted="git conflicted"
+alias conf="git conflicted"
 
 __git_complete g __git_main
 __git_complete ga _git_add
