@@ -38,7 +38,7 @@ nnoremap <leader><leader> <C-^>
 
 " Quickfix split
 nnoremap <Leader>co :copen<cr>
-nnoremap <Leader>cc :cclose<cr>
+nnoremap <Leader>cc :cclose<cr>:pclose<cr>
 
 nnoremap Q <NOP>
 

@@ -12,13 +12,13 @@ hi TabLine     cterm=none ctermfg=white ctermbg=cyan
 hi TabLineSel  cterm=none ctermfg=cyan ctermbg=white
 hi IndentGuidesEven ctermbg=darkgrey
 
+" TODO: Check this out, seems good for small screens
 " Automatically rebalance pane
-autocmd VimResized * :wincmd =
+autocmd VimResized * :wincmd GoldenRatioResize<CR> 
 
 " zoom pane, <C-w> to rebalance
 nnoremap <silent> <Leader>- :wincmd _<CR>:wincmd \|<CR>
 nnoremap <silent> <Leader>= :wincmd =<CR>
-
 
 " Open new split panes to right and bottom
 set splitbelow
@@ -48,5 +48,8 @@ set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
+
+set diffopt+=iwhite
+set diffopt+=vertical
 
 " vim:ft=vim

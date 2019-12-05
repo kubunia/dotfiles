@@ -1,3 +1,5 @@
 #!/bin/bash
 
 export PATH="$(yarn global bin):/home/$USER/.bin:/home/$USER/.local/usr/local/bin:$PATH"
+
+export SOLARGRAPH_GLOBAL_CONFIG='/home/$USER/.vim/solargraph.yml'

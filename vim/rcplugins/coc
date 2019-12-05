@@ -1,8 +1,15 @@
 " Async completion
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 
-vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_global_extensions = ['coc-snippets', 'coc-solargraph', 'coc-tsserver', 'coc-pairs']
 
 inoremap <silent><expr> <C-l>
       \ pumvisible() ? coc#_select_confirm() :
@@ -12,15 +19,60 @@ inoremap <silent><expr> <C-l>
 
 inoremap <silent><expr> <C-k>
       \ pumvisible() ? "\<C-p>" :
-      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-previous',''])\<CR>"
+      \ "\<C-r>=coc#rpc#request('snippetPrev', [])\<CR>"
 
 inoremap <silent><expr> <C-j>
       \ pumvisible() ? "\<C-n>" :
-      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-next',''])\<CR>"
+      \ "\<C-r>=coc#rpc#request('snippetNext', [])\<CR>"
+
+snoremap <silent><nowait><C-k> <Esc>:call coc#rpc#request('snippetPrev', [])<CR>
+snoremap <silent><nowait><C-j> <Esc>:call coc#rpc#request('snippetNext', [])<CR>
+
+let g:coc_snippet_prev = '<NOP>'
+let g:coc_snippet_next = '<NOP>'
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+nmap <silent> [r <Plug>(coc-diagnostic-prev)
+nmap <silent> ]r <Plug>(coc-diagnostic-next)
+
+nmap <leader>e  <Plug>(coc-fix-current)
+
+" Show all diagnostics
+" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nmap <leader>f <Plug>(coc-format-selected)
+xmap <leader>f <Plug>(coc-format-selected)
+
+command! -nargs=0 Format :call CocAction('format')
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gh <Plug>(coc-references)
+nmap <silent> <leader>p :call CocAction('format')<cr>
+
+" Show commands
+nnoremap <silent> <space>cm  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
+nmap <leader>rn <Plug>(coc-rename)
+
+" show documentation
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " vim:ft=vim

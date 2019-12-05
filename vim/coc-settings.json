@@ -1,22 +1,47 @@
 {
-  "coc": {
-    "preferences": {
-      "snippetIndicator": "",
-      "diagnostic": { "displayByAle": true }
-    }
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.hoverTarget": "float",
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
   },
-  "snippets": {
-    "ultisnips": {
-      "directories": ["UltiSnips", "plugged/vim-go/gosnippets/UltiSnips"]
-    },
-    "extends": {
-      "javascriptreact": ["javascript"],
-      "typescriptreact": ["javascript"],
-      "typescript": ["javascript"],
-      "ruby": ["rails"]
-    }
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
   },
-  "suggest": { "noselect": true, "acceptSuggestionOnCommitCharacter": true },
+  "coc.preferences.colorSupport": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.enablePreview": true,
+  "suggest.enablePreselect": true,
+  "diagnostic.errorSign": "!",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "•",
+  "diagnostic.hintSign": "•",
+  "diagnostic.signOffset": 999999,
+  "diagnostic.maxWindowHeight": 20,
+  "diagnostic.checkCurrentLine": true,
+  "signature.maxWindowHeight": 20,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css"],
+  "prettier.requireConfig": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.packageManager": "yarn",
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
+  "solargraph.useBundler": false,
+  "html.format.enable": true,
+  "tsserver.formatOnType": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
