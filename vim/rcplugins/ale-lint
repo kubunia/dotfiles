@@ -8,6 +8,7 @@ let g:ale_linters = {
  \ 'javascript': ['eslint', 'prettier'],
  \ 'json': ['eslint', 'prettier'],
  \ 'ruby': ['rubocop', 'standardrb'],
+ \ 'html': ['prettier'],
  \ }
 
 nmap <silent> [l <Plug>(ale_previous_wrap)
@@ -18,11 +19,13 @@ let g:ale_fixers = {
 \ 'javascript': ['eslint', 'prettier'],
 \ 'jsx': ['eslint', 'prettier'],
 \ 'json': ['eslint', 'prettier'],
-\ 'ruby': ['rubocop', 'standardrb'],
+\ 'html': ['prettier'],
+\ 'eruby': ['prettier'],
+\ 'ruby': ['rubocop'],
 \}
 
 let g:ale_enabled = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '-'

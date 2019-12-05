@@ -12,4 +12,6 @@ augroup ruby
   autocmd User ProjectionistDetect :call projections#set_projections('rails')
 augroup end
 
+command CreateSpec :vs spec/%:r_spec.rb
+
 " vim:ft=vim

@@ -2,10 +2,10 @@
 
 rvm_silence_path_mismatch_check_flag=1
 
-if [[ -f "/ome/$USER/.rvm/scripts/rvm" ]]; then
+if [ -d "/home/$USER/.rvm" ]; then
   export rvm_path="/home/$USER/.rvm"
-  source "$rvm_path/scripts/rvm"
-elif [[ -s "/usr/local/rvm/scripts/rvm" ]]; then
-  export rvm_path="/usr/local/rvm/scripts/rvm"
-  source "$rvm_path/scripts/rvm"
+elif [ -d "/usr/local/rvm" ]; then
+  export rvm_path="/usr/local/rvm"
 fi
+
+source "$rvm_path/scripts/rvm"

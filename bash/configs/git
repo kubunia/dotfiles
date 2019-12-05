@@ -33,6 +33,7 @@ alias gref='git reflog'
 
 alias gs="git stash"
 alias gsu="git stash -u"
+alias gsg="git stash -u --keep-index"
 alias gss="git stash save"
 alias gsp="git stash pop"
 alias gsl="git stash list"

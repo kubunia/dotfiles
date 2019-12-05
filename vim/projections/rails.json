@@ -68,5 +68,21 @@
   },
   "spec/policies/*_policy_spec.rb": {
     "alternate": "app/policies/{}_policy.rb"
+  },
+
+
+  "lib/*.rb": {
+    "command": "lib",
+    "test": [
+      "spec/lib/{}_spec.rb",
+      "test/lib/{}_test.rb"
+    ],
+    "alternate": [
+      "spec/lib/{}_spec.rb",
+      "test/lib/{}_test.rb"
+    ]
+  },
+  "spec/lib/*_spec.rb": {
+    "alternate": "lib/{}.rb"
   }
 }
