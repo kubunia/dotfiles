@@ -1,0 +1,5 @@
+" Resize buffer to improve work experience
+
+Plug 'roman/golden-ratio'
+
+" vim:ft=vim

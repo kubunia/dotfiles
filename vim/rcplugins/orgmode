@@ -3,5 +3,6 @@
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'org' }
+Plug 'dhruvasagar/vim-open-url'
 
 " vim:ft=vim
