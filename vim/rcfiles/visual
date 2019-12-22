@@ -14,7 +14,7 @@ hi IndentGuidesEven ctermbg=darkgrey
 
 " TODO: Check this out, seems good for small screens
 " Automatically rebalance pane
-autocmd VimResized * :wincmd GoldenRatioResize<CR> 
+autocmd VimResized * :wincmd =
 
 " zoom pane, <C-w> to rebalance
 nnoremap <silent> <Leader>- :wincmd _<CR>:wincmd \|<CR>
