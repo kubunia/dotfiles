@@ -9,13 +9,37 @@ ln -sfn $DIR/rspec/rspec $HOME/.rspec
 ln -sfn $DIR/tmux/tmux.conf $HOME/.tmux.conf
 ln -sfn $DIR/pry/pryrc $HOME/.pryrc
 ln -sfn $DIR/vim $HOME/.vim
-echo 'Symlinks created'
+echo 'System: symlinks created'
 
-echo 'export GOPATH="/home/$USER/go"' >> $HOME/.bash_profile
-echo 'export PATH="$GOPATH/bin:$PATH"' >> $HOME/.bash_profile
-echo 'GO path exported'
+mkdir "/home/$USER/.config/tilda" -p
+
+if [ -f "/home/$USER/.config/tilda/config_0" ]; then
+  curr=`date '+%Y_%m_%d_%H_%M'`
+  cp "/home/$USER/.config/tilda/config_0" "/home/$USER/.config/tilda/config_$curr"
+  echo "Tilda: config exists - archived as config_$curr"
+fi
+
+cp "$DIR/tilda/config_0" "/home/$USER/.config/tilda/config_0"
+echo 'Tilda: config copied'
+
+if ! [ -f "/home/$USER/.vim/autoload/plug.vim" ]; then
+  echo 'Vim: installing plugin manager plug.vim'
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+  echo 'Vim: plugin manager already installed (plug.vim)'
+fi
+
+if ! [ -x "$(command -v yarn)" ]; then
+  echo 'Error: YARN not installed. Install and run script again' >&2
+  exit 1
+else
+  if ! [ -x "$(command -v npx)" ]; then
+    yarn global add npx
+  fi
+fi
 
 vim +PlugInstall +qall > /dev/null
-echo 'Vim plugins installed'
+echo 'Vim: plugins installed'
 
 echo 'Done'
