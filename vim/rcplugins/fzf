@@ -17,8 +17,6 @@ let g:fzf_files_options =
   \ '|| cat {}) 2> /dev/null | head -'.&lines.'" '.
   \ '--preview-window right:60%'
 
-autocmd VimEnter * command! -bang -nargs=? Buffers call fzf#vim#buffers(<q-args>, {'options': '--no-preview'}, <bang>0)
-
 let g:fzf_layout = { 'down': '~30%' }
 
 let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'

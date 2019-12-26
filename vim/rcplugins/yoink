@@ -4,6 +4,7 @@ Plug 'svermeulen/vim-yoink'
 
 let g:yoinkIncludeDeleteOperations = 1
 let g:yoinkMoveCursorToEndOfPaste = 1
+let g:yoinkSavePersistently = 1
 
 nmap y <plug>(YoinkYankPreserveCursorPosition)
 xmap y <plug>(YoinkYankPreserveCursorPosition)

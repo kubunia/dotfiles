@@ -7,9 +7,10 @@ Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-
-let g:coc_global_extensions = ['coc-snippets', 'coc-solargraph', 'coc-tsserver', 'coc-pairs']
+Plug 'neoclide/coc-smartf', {'do': 'yarn install --frozen-lockfile'}
 
 inoremap <silent><expr> <C-l>
       \ pumvisible() ? coc#_select_confirm() :
@@ -28,6 +29,17 @@ inoremap <silent><expr> <C-j>
 snoremap <silent><nowait><C-k> <Esc>:call coc#rpc#request('snippetPrev', [])<CR>
 snoremap <silent><nowait><C-j> <Esc>:call coc#rpc#request('snippetNext', [])<CR>
 
+" Smartf instead easy-motion
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ; <Plug>(coc-smartf-repeat)
+nmap , <Plug>(coc-smartf-repeat-opposite)
+
+augroup Smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+augroup end
+
 let g:coc_snippet_prev = '<NOP>'
 let g:coc_snippet_next = '<NOP>'
 
@@ -39,29 +51,12 @@ endfunction
 nmap <silent> [r <Plug>(coc-diagnostic-prev)
 nmap <silent> ]r <Plug>(coc-diagnostic-next)
 
-nmap <leader>e  <Plug>(coc-fix-current)
-
-" Show all diagnostics
-" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-nmap <leader>f <Plug>(coc-format-selected)
-xmap <leader>f <Plug>(coc-format-selected)
-
-command! -nargs=0 Format :call CocAction('format')
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gh <Plug>(coc-references)
 nmap <silent> <leader>p :call CocAction('format')<cr>
-
-" Show commands
-nnoremap <silent> <space>cm  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
-nmap <leader>rn <Plug>(coc-rename)
 
 " show documentation
 function! s:show_documentation()
@@ -73,6 +68,10 @@ function! s:show_documentation()
 endfunction
 nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
 
 " vim:ft=vim

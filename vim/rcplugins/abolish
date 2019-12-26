@@ -1,8 +1,8 @@
-" Abolish - Coerce strings to different cases (and some other stuff)
+" Abolish - Coerce strings to different cases, abbreviations & subvert
 
 Plug 'tpope/tpope-vim-abolish'
 
-"
+" Coercion
 " crs - snake_case
 " crm - MixedCase
 " crc - camelCase

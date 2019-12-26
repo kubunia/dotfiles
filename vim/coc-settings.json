@@ -1,6 +1,7 @@
 {
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.hoverTarget": "float",
+  "coc.preferences.previewAutoClose": true,
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
@@ -25,7 +26,7 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["css"],
-  "prettier.requireConfig": true,
+  "prettier.requireConfig": false,
   "eslint.autoFixOnSave": true,
   "eslint.enable": true,
   "eslint.filetypes": [
@@ -39,7 +40,7 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
-  "solargraph.useBundler": false,
+  "solargraph.useBundler": true,
   "html.format.enable": true,
   "tsserver.formatOnType": true,
   "languageserver": {
