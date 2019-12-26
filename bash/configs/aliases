@@ -15,5 +15,5 @@ alias egrep="egrep --color=auto"
 alias ls="ls --color"
 
 # vim
-alias v="nvim +Files"
-alias bv="bundle e nvim +Files"
+alias v="run-vim"
+alias bv="bundle e run-vim"
