@@ -20,7 +20,13 @@ fun! s:project_root()
 endfun
 
 fun! s:file_path()
-  return matchlist(expand('%:p:r'), s:project_root() . '/\(.*\)')[1]
+  let match = matchlist(expand('%:p:r'), s:project_root() . '/\(.*\)')
+
+  if len(match) > 0
+    return match[1]
+  else
+    return expand("%:p:r")
+  end
 endfun
 
 fun! s:extract(path)
@@ -41,24 +47,18 @@ fun! s:extract(path)
 endfun
 
 fun! ruby#class_name(...)
-  try
     let path = s:file_path()
     let parts = s:extract(path)
-  catch
-    finish
-  endt
 
   call map(parts, {idx, val -> substitute(val, '\(_\|^\)\(.\)', '\u\2', 'g') })
 
   if a:0 > 0
-    echo 'asd'
     return parts
   else
-    echo 'ff'
     return join(parts, '::')
   endif
 endfun
 
-command CreateSpec :vs spec/%:r_spec.rb
+command! CreateSpec :vs spec/%:r_spec.rb
 
 " vim:ft=vim

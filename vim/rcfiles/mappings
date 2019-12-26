@@ -16,7 +16,6 @@ inoremap <C-@> <Esc>
 nnoremap H ^
 nnoremap L $
 nnoremap 0 ^
-nnoremap <leader>; :
 nmap j gj
 nmap k gk
 
@@ -41,5 +40,8 @@ nnoremap <Leader>co :copen<cr>
 nnoremap <Leader>cc :cclose<cr>:pclose<cr>
 
 nnoremap Q <NOP>
+
+" Kill buffer & keep split
+nmap <silent> <C-c> :bp\|bd #<CR>
 
 " vim:ft=vim

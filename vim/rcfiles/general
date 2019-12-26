@@ -60,6 +60,4 @@ set vb t_vb=
 set autoread
 set confirm
 
-set tags^=./.git/tags;
-
 " vim:ft=vim

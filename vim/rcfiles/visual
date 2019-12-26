@@ -12,7 +12,6 @@ hi TabLine     cterm=none ctermfg=white ctermbg=cyan
 hi TabLineSel  cterm=none ctermfg=cyan ctermbg=white
 hi IndentGuidesEven ctermbg=darkgrey
 
-" TODO: Check this out, seems good for small screens
 " Automatically rebalance pane
 autocmd VimResized * :wincmd =
 
@@ -28,22 +27,13 @@ set splitright
 highlight ColorColumn ctermbg=236 guibg=#592929
 let &colorcolumn=join(range(81,999),",")
 
-" Cursor
-set guicursor=a:blinkon2
-
-" ALE colors
-hi ALEWarning ctermbg=94
-
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * let &colorcolumn=join(range(81,999),",")
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
-" You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
-
-" don't give |ins-completion-menu| messages.
 set shortmess+=c
 
 " always show signcolumns
