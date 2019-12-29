@@ -25,6 +25,7 @@
   "signature.maxWindowHeight": 20,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": true,
+  "stylelint.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css"
   ],

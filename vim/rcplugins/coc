@@ -13,6 +13,9 @@ Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-smartf', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 
+" Can't integrate with prettier cuz callback error
+Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
+
 inoremap <silent><expr> <C-l>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
