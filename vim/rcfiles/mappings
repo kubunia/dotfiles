@@ -19,6 +19,9 @@ nnoremap 0 ^
 nmap j gj
 nmap k gk
 
+cnoremap <C-j> <C-n>
+cnoremap <C-k> <C-p>
+
 " Write and close shortcuts
 nnoremap <Leader>w <Esc>:w<CR>
 nnoremap <Leader>q <Esc>:q<CR>

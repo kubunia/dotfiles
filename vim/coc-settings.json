@@ -25,20 +25,24 @@
   "signature.maxWindowHeight": 20,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": true,
-  "stylelint.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
-    "css"
-  ],
-  "prettier.requireConfig": false,
-  "eslint.autoFixOnSave": true,
-  "eslint.enable": true,
-  "eslint.filetypes": [
+    "css",
+    "scss",
+    "less",
+    "postcss",
+    "json",
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
+  "eslint.enable": true,
   "eslint.packageManager": "yarn",
+  "stylelint.enable": true,
+  "prettier.requireConfig": false,
+  "prettier.stylelintIntegration": false,
+  "prettier.eslintIntegration": true,
+  "eslint.autoFixOnSave": true,
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
@@ -49,17 +53,11 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": [
-        "go.mod",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "filetypes": [
-        "go"
-      ]
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     }
   },
+  "smartf.charactersIgnoreByNavigator": ["a", "i"],
   "emmet.showExpandedAbbreviation": "always",
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.includeLanguages": {
