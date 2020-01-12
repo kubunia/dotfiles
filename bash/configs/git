@@ -69,9 +69,7 @@ __git_complete gd _git_diff
 __git_complete gcp _git_cherry_pick
 
 g() {
-  if ! [ -d .git ] && [ "$1" != 'init' ]; then
-    echo 'No git repository'
-  elif [[ $# -eq 0 ]] ; then
+  if [[ $# -eq 0 ]] ; then
     git status -s
   else
     git $@

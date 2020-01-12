@@ -3,7 +3,7 @@
   excludesfile = ~/.gitignore
   autocrlf = input
 [alias]
-  conflicted = !vim +Conflicted
+  conflicted = !nvim +Conflicted
 [color]
   ui = auto
 [color "status"]
