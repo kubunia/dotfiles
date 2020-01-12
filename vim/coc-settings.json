@@ -12,9 +12,9 @@
   "diagnostic.refreshOnInsertMode": true,
   "suggest.floatEnable": true,
   "suggest.noselect": false,
-  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.acceptSuggestionOnCommitCharacter": false,
   "suggest.enablePreview": true,
-  "suggest.enablePreselect": true,
+  "suggest.enablePreselect": false,
   "diagnostic.errorSign": "!",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "•",
@@ -24,8 +24,9 @@
   "diagnostic.checkCurrentLine": true,
   "signature.maxWindowHeight": 20,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
+    "html",
     "css",
     "scss",
     "less",
@@ -65,5 +66,9 @@
     "javascript.jsx": "javascriptreact",
     "typescript.tsx": "typescriptreact",
     "eruby": "html"
+  },
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
   }
 }
