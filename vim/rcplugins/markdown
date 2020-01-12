@@ -1,0 +1,14 @@
+
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+hi def link markdownH1Delimiter           PreProc
+hi def link markdownH2Delimiter           Type
+hi def link markdownH3Delimiter           Directory
+
+
+let g:mkdp_auto_close = 0
+nnoremap <M-m> :MarkdownPreview<CR>
+
+" vim:ft=vim
