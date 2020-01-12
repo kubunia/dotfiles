@@ -4,3 +4,4 @@ export GOPATH="/home/$USER/go"
 export SOLARGRAPH_GLOBAL_CONFIG="/home/$USER/.vim/solargraph.yml"
 
 export PATH="$(yarn global bin):$GOPATH/bin:/home/$USER/.bin:/home/$USER/.local/usr/local/bin:$PATH"
+export RUBYOPT='-W:no-deprecated -W:no-experimental'
