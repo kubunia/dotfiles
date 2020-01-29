@@ -9,8 +9,16 @@ let g:lightline = {
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'cocstatus': 'coc#status'
+      \   'cocstatus': 'coc#status',
+      \   'filename': 'LightlineFilename',
       \ },
       \ }
+
+
+function! LightlineFilename()
+  let filename = expand('%') !=# '' ? expand('%') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
 
 " vim:ft=vim
