@@ -1,10 +1,11 @@
 " JavaScript - syntax and indent, additionaly JSX support
 
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-" Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript.jsx' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
 
-let g:jsx_ext_required = 0
+highlight def link jsxCloseString Label
+" highlight def link jsxOpenPunct Label
+highlight def link jsxComponentName Label
 
 autocmd BufEnter *.es6 setf javascript
 
