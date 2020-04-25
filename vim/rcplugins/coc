@@ -6,14 +6,15 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 
-" Can't integrate with prettier cuz callback error
-Plug 'neoclide/coc-stylelint', {'do': 'yarn install --frozen-lockfile'}
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-solargraph',
+      \ 'coc-snippets',
+      \ 'coc-stylelint',
+      \]
 
 inoremap <silent><expr> <C-l>
       \ pumvisible() ? coc#_select_confirm() :
@@ -28,6 +29,8 @@ inoremap <silent><expr> <C-k>
 inoremap <silent><expr> <C-j>
       \ pumvisible() ? "\<C-n>" :
       \ "\<C-r>=coc#rpc#request('snippetNext', [])\<CR>"
+
+xmap <C-l> <Plug>(coc-snippets-select)
 
 snoremap <silent><nowait><C-k> <Esc>:call coc#rpc#request('snippetPrev', [])<CR>
 snoremap <silent><nowait><C-j> <Esc>:call coc#rpc#request('snippetNext', [])<CR>
@@ -49,6 +52,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gh <Plug>(coc-references)
 nmap <silent> <leader>p :call CocAction('format')<cr>
+nmap <silent> <leader>cp :call CocAction('pickColor')<cr>
 
 " show documentation
 function! s:show_documentation()

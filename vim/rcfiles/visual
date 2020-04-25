@@ -27,6 +27,10 @@ set splitright
 highlight ColorColumn ctermbg=236 guibg=#592929
 let &colorcolumn=join(range(81,999),",")
 
+" Enable gui colors, customize comment
+set termguicolors
+hi Comment guifg=#2b2b2b guibg=#9e9e9e
+
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * let &colorcolumn=join(range(81,999),",")

@@ -13,6 +13,8 @@
   "suggest.floatEnable": true,
   "suggest.noselect": false,
   "suggest.acceptSuggestionOnCommitCharacter": false,
+  "suggest.preferCompleteThanJumpPlaceholder": false,
+  "suggest.triggerAfterInsertEnter": false,
   "suggest.enablePreview": true,
   "suggest.enablePreselect": false,
   "diagnostic.errorSign": "!",
@@ -31,11 +33,7 @@
     "scss",
     "less",
     "postcss",
-    "json",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
+    "json"
   ],
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
@@ -48,7 +46,7 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
-  "solargraph.useBundler": true,
+  "solargraph.useBundler": false,
   "html.format.enable": true,
   "tsserver.formatOnType": true,
   "languageserver": {
@@ -70,5 +68,6 @@
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
-  }
+  },
+  "yank.highlight.enable": false
 }
