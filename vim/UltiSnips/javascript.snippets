@@ -1,5 +1,9 @@
+snippet ir "import react" b
+import React from 'react';
+endsnippet
+
 snippet imp "import" b
-import ${1:name} from '${2:}$1';
+import ${1:name} from '${2}$1';
 endsnippet
 
 snippet req "require" b
@@ -10,6 +14,32 @@ snippet fun "function" b
 function ${1:function_name} (${2:argument}) {
 	${VISUAL}$0
 }
+endsnippet
+
+snippet => "function"
+() => {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fe "function export" b
+const ${1:name} = (${2}) => {
+	return (
+		${VISUAL}$0
+	)
+}
+
+export default ${1}
+endsnippet
+
+snippet class "ES6 class" b
+class ${1:name} {
+	constructor(${2:args}) {
+		${0}
+	}
+}
+
+export default ${1}
 endsnippet
 
 # TESTING
@@ -24,4 +54,8 @@ snippet it "" b
 it("${1:describtion}", () => {
 	${2:assertions}
 })
+endsnippet
+
+snippet exp "" b
+expect(${1:actual}).${2:toBe(${3})}
 endsnippet

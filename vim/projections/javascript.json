@@ -1,0 +1,14 @@
+{
+  "src/*.js": {
+    "command": "src",
+    "test": ["__test__/{}.test.js"],
+    "alternate": "__test__/{}.test.js",
+    "related": ["src/{}.scss"],
+    "type": "source"
+  },
+  "__test__/*.test.js": {
+    "command": "test",
+    "alternate": "src/{}.js",
+    "type": "test"
+  }
+}
