@@ -2,5 +2,4 @@
 
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 
-
 " vim:ft=vim

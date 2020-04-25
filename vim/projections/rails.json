@@ -39,6 +39,15 @@
   "spec/queries/*_query_spec.rb": {
     "alternate": "app/queries/{}_query.rb"
   },
+  "app/forms/*_form.rb": {
+    "command": "form",
+    "related": ["app/models/{}.rb"],
+    "test": ["spec/forms/{}_form_spec.rb"],
+    "alternate": ["spec/forms/{}_form_spec.rb"]
+  },
+  "spec/forms/*_form_spec.rb": {
+    "alternate": "app/forms/{}_form.rb"
+  },
   "app/policies/*_policy.rb": {
     "command": "policy",
     "related": ["app/models/{}.rb"],
@@ -47,6 +56,14 @@
   },
   "spec/policies/*_policy_spec.rb": {
     "alternate": "app/policies/{}_policy.rb"
+  },
+  "app/validators/*_validator.rb": {
+    "command": "validator",
+    "test": ["spec/validators/{}_validator_spec.rb"],
+    "alternate": ["spec/validators/{}_validator_spec.rb"]
+  },
+  "spec/validators/*_validator_spec.rb": {
+    "alternate": "app/validators/{}_validator.rb"
   },
   "lib/*.rb": {
     "command": "lib",
