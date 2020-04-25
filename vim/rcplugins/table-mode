@@ -1,0 +1,5 @@
+" Table with some calcs
+
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'org' }
+
+" vim:ft=vim
