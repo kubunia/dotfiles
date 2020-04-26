@@ -3,13 +3,13 @@
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
-fun! s:ignore(lines)
-endfun
-
 let g:fzf_action = {
   \ 'ctrl-x': 'delete',
   \ 'ctrl-v': 'vsplit',
   \ 'ctrl-Space': function('s:ignore') }
+
+fun! s:ignore(lines)
+endfun
 
 let g:fzf_files_options =
   \ '--reverse ' .
@@ -17,34 +17,41 @@ let g:fzf_files_options =
   \ '|| cat {}) 2> /dev/null | head -'.&lines.'" '.
   \ '--preview-window right:60%'
 
-let g:fzf_layout = { 'down': '~30%' }
+" let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_layout = {
+  \  'window': {
+  \    'width': 0.9,
+  \    'height': 0.6,
+  \    'highlight': 'Todo',
+  \    'border': 'sharp'
+  \  } 
+  \}
 
 let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
 
 " Match file names
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--no-preview --delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=* Ag call fzf#vim#ag(
+  \  <q-args>, {'options': '--no-preview --delimiter : --nth 4..'}, <bang>0
+  \)
 
 nnoremap <C-p> :Files<cr>
 nnoremap <C-q> :Buffers<CR>
+nnoremap <C-g> :Commits<CR>
 nnoremap \ :Ag<SPACE>
 xnoremap \ :<C-u>call VSetSearch()<CR>:Ag<SPACE><C-R>=@/<CR><CR>
 
 nnoremap <leader>\ :Rag<SPACE>
 xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
-nnoremap <leader>\ :Rag<SPACE>
-xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
-
-nnoremap <leader>\ :Rag<SPACE>
-xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
-
-nnoremap <leader>\ :Rag<SPACE>
-xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
-
 
 function! s:ag_raw(command_suffix, ...)
- return call('fzf#vim#grep', extend(['ag --nogroup --column --color '.a:command_suffix, 1], a:000))
+  return call(
+  \  'fzf#vim#grep',
+  \  extend(['ag --nogroup --column --color '.a:command_suffix, 1], a:000)
+  \)
 endfunction
 
-command! -bang -nargs=+ -complete=dir Rag call s:ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=+ -complete=dir Rag call s:ag_raw(
+  \  <q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0
+  \)
 
 " vim:ft=vim

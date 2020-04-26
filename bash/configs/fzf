@@ -11,4 +11,4 @@ alias fzf="
   --preview '(bat --color=always --style=header,grid --line-range :300 {} || \
       cat {}) 2> /dev/null' \
   --preview-window top:60% \
-  --bind ctrl-n:down,ctrl-p:up"
+  --bind alt-j:preview-down,alt-k:preview-up,ctrl-k:up,ctrl-j:down"
