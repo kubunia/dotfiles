@@ -26,17 +26,20 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--no-preview -
 
 nnoremap <C-p> :Files<cr>
 nnoremap <C-q> :Buffers<CR>
-nnoremap <Leader>ga :Files app/<CR>
-nnoremap <Leader>gm :Files app/models/<CR>
-nnoremap <Leader>gc :Files app/controllers/<CR>
-nnoremap <Leader>gv :Files app/views/<CR>
-nnoremap <Leader>gl :Files lib/<CR>
-nnoremap <Leader>gs :Files spec/<CR>
 nnoremap \ :Ag<SPACE>
 xnoremap \ :<C-u>call VSetSearch()<CR>:Ag<SPACE><C-R>=@/<CR><CR>
 
 nnoremap <leader>\ :Rag<SPACE>
 xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
+nnoremap <leader>\ :Rag<SPACE>
+xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
+
+nnoremap <leader>\ :Rag<SPACE>
+xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
+
+nnoremap <leader>\ :Rag<SPACE>
+xnoremap <leader>\ :<C-u>call VSetSearch()<CR>:Rag<SPACE><C-R>=@/<CR> ./
+
 
 function! s:ag_raw(command_suffix, ...)
  return call('fzf#vim#grep', extend(['ag --nogroup --column --color '.a:command_suffix, 1], a:000))

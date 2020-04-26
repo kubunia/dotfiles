@@ -61,4 +61,14 @@ endfun
 
 command! CreateSpec :vs spec/%:r_spec.rb
 
+nnoremap <Leader>fl :Files lib/<CR>
+nnoremap <Leader>fs :Files spec/<CR>
+
+if exists('g:loaded_rails')
+  nnoremap <Leader>fa :Files app/<CR>
+  nnoremap <Leader>fm :Files app/models/<CR>
+  nnoremap <Leader>fc :Files app/controllers/<CR>
+  nnoremap <Leader>fv :Files app/views/<CR>
+endif
+
 " vim:ft=vim
