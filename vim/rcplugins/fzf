@@ -3,13 +3,14 @@
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 
+fun! s:ignore(lines)
+endfun
+
 let g:fzf_action = {
   \ 'ctrl-x': 'delete',
   \ 'ctrl-v': 'vsplit',
-  \ 'ctrl-Space': function('s:ignore') }
-
-fun! s:ignore(lines)
-endfun
+  \ 'ctrl-Space': function('s:ignore')
+  \}
 
 let g:fzf_files_options =
   \ '--reverse ' .

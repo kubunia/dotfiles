@@ -1,6 +1,0 @@
-" Rsi - Readline mappings at the Vim command line
-
-" TODO: Mark it
-Plug 'tpope/vim-rsi'
-
-" vim:ft=vim
