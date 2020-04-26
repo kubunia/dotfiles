@@ -7,4 +7,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 nnoremap g<space> :Gstatus<cr>
 
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gr :Gread<CR>
+noremap <leader>gl :0Glog<CR>
+
 " vim:ft=vim
