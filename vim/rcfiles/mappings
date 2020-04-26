@@ -16,6 +16,7 @@ inoremap <C-@> <Esc>
 nnoremap H ^
 nnoremap L $
 nnoremap 0 ^
+nnoremap ^ 0
 nmap j gj
 nmap k gk
 nmap <C-e> :e<CR>
