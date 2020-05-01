@@ -68,6 +68,5 @@
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
-  },
-  "yank.highlight.enable": false
+  }
 }
