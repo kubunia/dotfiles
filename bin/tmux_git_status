@@ -3,11 +3,8 @@ current_path=$(tmux display-message -p -F "#{pane_current_path}")
 cd $current_path
 
 tmux_git_status_bar() {
-
-  [[ $(git status 2> /dev/null)  ]]
-
+  [[ $(git status 2> /dev/null) ]]
   if [ $? -eq 0 ]; then
-
     if [[ $(git diff-index HEAD 2> /dev/null) ]]; then
       status+="#[bg=colour88]"
     elif [[ $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
@@ -18,7 +15,7 @@ tmux_git_status_bar() {
 
     status+="#[fg=colour3,bold]⮀ #[fg=colour7]#[fg=colour248, bold]$(git rev-parse --abbrev-ref HEAD)#[fg=colour3,bold] ⮂"
 
-    if [ -e ".git/refs/stash" ]; then
+    if [[ $(git stash list) ]]; then
       status="$status#[bg=colour26]#[fg=colour26]#[fg=colour7,nobold]❄"
     fi
 
