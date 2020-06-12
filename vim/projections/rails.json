@@ -57,6 +57,14 @@
   "spec/policies/*_policy_spec.rb": {
     "alternate": "app/policies/{}_policy.rb"
   },
+  "app/jobs/*_job.rb": {
+    "command": "job",
+    "test": ["spec/jobs/{}_job_spec.rb"],
+    "alternate": ["spec/jobs/{}_job_spec.rb"]
+  },
+  "spec/jobs/*_job_spec.rb": {
+    "alternate": "app/jobs/{}_job.rb"
+  },
   "app/validators/*_validator.rb": {
     "command": "validator",
     "test": ["spec/validators/{}_validator_spec.rb"],
