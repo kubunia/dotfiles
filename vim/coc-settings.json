@@ -27,14 +27,7 @@
   "signature.maxWindowHeight": 20,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "scss",
-    "less",
-    "postcss",
-    "json"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": ["html", "json"],
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "stylelint.enable": true,
