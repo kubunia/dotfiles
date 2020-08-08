@@ -27,6 +27,8 @@
   prune = true
 [rebase]
   autosquash = true
+[pull]
+  ff = only
 [include]
   path = ~/.gitconfig.local
 [diff]
