@@ -33,3 +33,6 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[user]
+  name = arowinski
+  email = arowinski02@gmail.com
