@@ -2,6 +2,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ln -sfn $DIR/ag/ignore $HOME/.agignore
 ln -sfn $DIR/bash $HOME/.bash
+ln -sfn $DIR/zsh $HOME/.zsh
 ln -sfn $DIR/bin $HOME/.bin
 ln -sfn $DIR/git/gitconfig $HOME/.gitconfig
 ln -sfn $DIR/psql/psqlrc $HOME/.psqlrc
@@ -10,17 +11,6 @@ ln -sfn $DIR/tmux/tmux.conf $HOME/.tmux.conf
 ln -sfn $DIR/pry/pryrc $HOME/.pryrc
 ln -sfn $DIR/vim $HOME/.vim
 echo 'System: symlinks created'
-
-mkdir "/home/$USER/.config/tilda" -p
-
-if [ -f "/home/$USER/.config/tilda/config_0" ]; then
-  curr=`date '+%Y_%m_%d_%H_%M'`
-  cp "/home/$USER/.config/tilda/config_0" "/home/$USER/.config/tilda/config_$curr"
-  echo "Tilda: config exists - archived as config_$curr"
-fi
-
-cp "$DIR/tilda/config_0" "/home/$USER/.config/tilda/config_0"
-echo 'Tilda: config copied'
 
 if ! [ -f "/home/$USER/.vim/autoload/plug.vim" ]; then
   echo 'Vim: installing plugin manager plug.vim'
