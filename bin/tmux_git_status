@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+[[ $ZSH_EVAL_CONTEXT =~ :file$ ]] && sourced=1 || sourced=0
+
 current_path=$(tmux display-message -p -F "#{pane_current_path}")
 cd $current_path
 
@@ -13,13 +15,12 @@ tmux_git_status_bar() {
       status+="#[bg=colour22]"
     fi
 
-    status+="#[fg=colour3,bold]⮀ #[fg=colour7]#[fg=colour248, bold]$(git rev-parse --abbrev-ref HEAD)#[fg=colour3,bold] ⮂"
+    status+="#[fg=colour3,bold]> #[fg=colour7]#[fg=colour248, bold]$(git rev-parse --abbrev-ref HEAD)#[fg=colour3,bold] <"
 
     if [[ $(git stash list) ]]; then
       status="$status#[bg=colour26]#[fg=colour26]#[fg=colour7,nobold]❄"
     fi
 
-    status+="#[bg=colour8]#[fg=colour8]___"
     echo $status
   fi
 }
