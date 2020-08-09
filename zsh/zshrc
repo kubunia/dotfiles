@@ -1,0 +1,20 @@
+source $HOME/.zsh/zshenv
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+bindkey -e
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+for config in $HOME/.zsh/configs/*; do
+  source $config
+done
+
+ensure_tmux_is_running
+
+. /usr/local/opt/asdf/asdf.sh
+eval "$(asdf exec direnv hook zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
