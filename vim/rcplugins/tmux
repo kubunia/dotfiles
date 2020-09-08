@@ -14,6 +14,7 @@ nnoremap <Leader>vl :VtrClearRunner<cr>
 noremap <C-f> :VtrSendLinesToRunner<cr>
 
 nnoremap <leader>v0 :VtrAttachToPane 0<cr>:call system("tmux clock-mode -t 0 && sleep 0.1 && tmux send-keys -t 0 q")<cr>
+nnoremap <leader>vv :VtrAttachToPane 1<cr>:call system("tmux clock-mode -t 1 && sleep 0.1 && tmux send-keys -t 1 q")<cr>
 nnoremap <leader>v1 :VtrAttachToPane 1<cr>:call system("tmux clock-mode -t 1 && sleep 0.1 && tmux send-keys -t 1 q")<cr>
 nnoremap <leader>v2 :VtrAttachToPane 2<cr>:call system("tmux clock-mode -t 2 && sleep 0.1 && tmux send-keys -t 2 q")<cr>
 nnoremap <leader>v3 :VtrAttachToPane 3<cr>:call system("tmux clock-mode -t 3 && sleep 0.1 && tmux send-keys -t 3 q")<cr>
@@ -25,5 +26,7 @@ function! TmuxSendCommand()
 
   execute(':VtrSendCommand ' . name)
 endfunction
+
+autocmd VimEnter * :VtrAttachToPane 1<cr>
 
 " vim:ft=vim
