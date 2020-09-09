@@ -18,17 +18,11 @@
     "test": ["spec/models/{}_spec.rb"],
     "alternate": ["spec/models/{}_spec.rb"]
   },
-  "spec/models/*_spec.rb": {
-    "alternate": "app/models/{}.rb"
-  },
   "app/presenters/*_presenter.rb": {
     "command": "presenter",
     "related": ["app/models/{}.rb"],
     "test": ["spec/presenters/{}_presenter_spec.rb"],
     "alternate": ["spec/presenters/{}_presenter_spec.rb"]
-  },
-  "spec/presenters/*_presenter_spec.rb": {
-    "alternate": "app/presenters/{}_presenter.rb"
   },
   "app/queries/*_query.rb": {
     "command": "query",
@@ -36,17 +30,11 @@
     "test": ["spec/queries/{}_query_spec.rb"],
     "alternate": ["spec/queries/{}_query_spec.rb"]
   },
-  "spec/queries/*_query_spec.rb": {
-    "alternate": "app/queries/{}_query.rb"
-  },
   "app/forms/*_form.rb": {
     "command": "form",
     "related": ["app/models/{}.rb"],
     "test": ["spec/forms/{}_form_spec.rb"],
     "alternate": ["spec/forms/{}_form_spec.rb"]
-  },
-  "spec/forms/*_form_spec.rb": {
-    "alternate": "app/forms/{}_form.rb"
   },
   "app/policies/*_policy.rb": {
     "command": "policy",
@@ -54,24 +42,15 @@
     "test": ["spec/policies/{}_policy_spec.rb"],
     "alternate": ["spec/policies/{}_policy_spec.rb"]
   },
-  "spec/policies/*_policy_spec.rb": {
-    "alternate": "app/policies/{}_policy.rb"
-  },
   "app/jobs/*_job.rb": {
     "command": "job",
     "test": ["spec/jobs/{}_job_spec.rb"],
     "alternate": ["spec/jobs/{}_job_spec.rb"]
   },
-  "spec/jobs/*_job_spec.rb": {
-    "alternate": "app/jobs/{}_job.rb"
-  },
   "app/validators/*_validator.rb": {
     "command": "validator",
     "test": ["spec/validators/{}_validator_spec.rb"],
     "alternate": ["spec/validators/{}_validator_spec.rb"]
-  },
-  "spec/validators/*_validator_spec.rb": {
-    "alternate": "app/validators/{}_validator.rb"
   },
   "app/components/*_component.rb": {
     "command": "component",
@@ -79,15 +58,19 @@
     "test": ["spec/components/{}_component_spec.rb"],
     "alternate": ["spec/components/{}_component_spec.rb"]
   },
-  "spec/components/*_component_spec.rb": {
-    "alternate": "app/components/{}_component.rb"
+  "app/value_objects/*.rb": {
+    "command": "value_object",
+    "test": ["spec/value_objects/{}_spec.rb"],
+    "alternate": ["spec/value_objects/{}_spec.rb"]
+  },
+  "app/services/*_service.rb": {
+    "command": "service",
+    "test": ["spec/services/{}_service_spec.rb"],
+    "alternate": ["spec/services/{}_service_spec.rb"]
   },
   "lib/*.rb": {
     "command": "lib",
     "test": ["spec/lib/{}_spec.rb"],
     "alternate": ["spec/lib/{}_spec.rb"]
-  },
-  "spec/lib/*_spec.rb": {
-    "alternate": "lib/{}.rb"
   }
 }

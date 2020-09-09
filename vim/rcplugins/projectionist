@@ -1,14 +1,5 @@
 Plug 'tpope/vim-projectionist'
 
-fun! s:try_save_before()
-  if filereadable(expand("%")) || !expand('%')
-    echo "No Alternate"
-  else
-    exec ":w|e"
-    exec s:alternate()
-  endif
-endfun
-
 fun! s:open_alternate(projections)
   if(len(a:projections[-1]) == 1)
     exec 'vs' a:projections[-1][-1]
@@ -21,7 +12,7 @@ fun! s:alternate()
   let projections = projectionist#query('alternate')
 
   if(len(projections) == 0)
-    call s:try_save_before()
+    AV
   else
     call s:open_alternate(projections[-1])
   endif
