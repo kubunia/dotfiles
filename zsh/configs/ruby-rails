@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 alias b='bundle exec'
 alias rc='bundle exec rails c'

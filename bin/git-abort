@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [[ -e .git/CHERRY_PICK_HEAD ]] ; then
     exec git cherry-pick --abort "$@"

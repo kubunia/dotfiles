@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 exec git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
 echo
