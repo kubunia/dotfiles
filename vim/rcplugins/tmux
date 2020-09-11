@@ -27,6 +27,6 @@ function! TmuxSendCommand()
   execute(':VtrSendCommand ' . name)
 endfunction
 
-autocmd VimEnter * :VtrAttachToPane 1<cr>
+autocmd VimEnter * silent :VtrAttachToPane 1<cr>
 
 " vim:ft=vim
