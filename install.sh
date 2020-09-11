@@ -12,6 +12,9 @@ ln -sfn $DIR/pry/pryrc $HOME/.pryrc
 ln -sfn $DIR/vim $HOME/.vim
 echo 'System: symlinks created'
 
+brew bundle
+echo 'Brew bundled!'
+
 if ! [ -f "/home/$USER/.vim/autoload/plug.vim" ]; then
   echo 'Vim: installing plugin manager plug.vim'
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
