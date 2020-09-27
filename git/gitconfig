@@ -22,7 +22,7 @@
 [merge]
   ff = only
 [push]
-	default = current
+  default = current
 [fetch]
   prune = true
 [rebase]
