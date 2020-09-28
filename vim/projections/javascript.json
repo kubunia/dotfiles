@@ -1,12 +1,12 @@
 {
   "src/*.js": {
     "command": "src",
-    "test": ["__test__/{}.test.js"],
-    "alternate": "__test__/{}.test.js",
+    "test": ["src/{}.test.js"],
+    "alternate": "src/{}.test.js",
     "related": ["src/{}.scss"],
     "type": "source"
   },
-  "__test__/*.test.js": {
+  "src/*.test.js": {
     "command": "test",
     "alternate": "src/{}.js",
     "type": "test"
