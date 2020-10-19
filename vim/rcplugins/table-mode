@@ -1,9 +1,0 @@
-" Table with some calcs
-
-autocmd BufNewFile,BufRead *.calc set filetype=calc
-
-Plug 'dhruvasagar/vim-table-mode', { 'for': 'calc' }
-
-command! CCD silent :!git add -A && git commit -m "`date +\%d/\%m/\%Y`"<CR>
-
-" vim:ft=vim
