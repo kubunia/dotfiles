@@ -1,3 +1,7 @@
+snippet cl "console.log"
+console.log(${1})
+endsnippet
+
 snippet ir "import react" b
 import React from 'react';
 endsnippet
@@ -42,14 +46,24 @@ class ${1:name} {
 export default ${1}
 endsnippet
 
+snippet ic "Import Component" b
+import ${1:name} from '${2:type}/${1}/${1}'
+endsnippet
+
 # TESTING
 
 snippet desc "" b
 describe("${1:name}", () => {
 	${2:VISUAL}
 })
-
 endsnippet
+
+snippet cont "" b
+context("${1:name}", () => {
+	${2:VISUAL}
+})
+endsnippet
+
 snippet it "" b
 it("${1:describtion}", () => {
 	${2:assertions}
