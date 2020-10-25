@@ -39,7 +39,7 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
-  "solargraph.useBundler": false,
+  "solargraph.useBundler": true,
   "html.format.enable": true,
   "tsserver.formatOnType": true,
   "languageserver": {
@@ -61,5 +61,20 @@
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
-  }
+  },
+  "cSpell.enabledLanguageIds": [
+    "go",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "plaintext",
+    "typescript",
+    "typescriptreact",
+    "yml",
+    "ruby",
+    "gitcommit",
+    "json"
+  ],
+  "cSpell.showStatus": false,
+  "cSpell.import": ["~/.config/nvim/spell/en.utf-8.add"]
 }
