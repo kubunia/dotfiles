@@ -1,19 +1,28 @@
 " Async completion
 
 Plug 'neoclide/coc.nvim', {'branch': 'release' }
-Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+Plug 'antoinemadec/coc-fzf'
+Plug 'wellle/tmux-complete.vim'
 
 let g:coc_global_extensions = [
-      \ 'coc-tsserver',
-      \ 'coc-solargraph',
+      \ 'coc-css',
+      \ 'coc-emmet',
+      \ 'coc-eslint',
+      \ 'coc-go',
+      \ 'coc-html',
+      \ 'coc-json',
+      \ 'coc-prettier',
       \ 'coc-snippets',
+      \ 'coc-solargraph',
+      \ 'coc-sql',
+      \ 'coc-styled-components',
       \ 'coc-stylelint',
+      \ 'coc-tailwindcss',
+      \ 'coc-tsserver',
+      \ 'coc-webpack',
+      \ 'coc-yaml',
+      \ 'coc-jest',
+      \ 'coc-yank'
       \]
 
 inoremap <silent><expr> <C-l>
@@ -69,5 +78,17 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
+
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+nmap <silent> <leader>ss :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@iw
+nnoremap <Leader>sa :<C-U>CocCommand cSpell.addWordToUserDictionary<CR>
+
+nnoremap <silent> <space>y :<C-u>CocFzfList yank<CR>
 
 " vim:ft=vim
