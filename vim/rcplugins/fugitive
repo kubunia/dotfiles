@@ -1,6 +1,7 @@
 " Fugitive - Vim meets git. Gstatus, Gdiff, etc.
 
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/git-messenger.vim'
 
 " Autoclean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
