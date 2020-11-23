@@ -11,6 +11,7 @@ ln -sfn $DIR/pry/pryrc $HOME/.pryrc
 ln -sfn $DIR/vim $HOME/.vim
 ln -sfn $DIR/ctags/ctags $HOME/.ctags.d/.ctags
 ln -sfn $DIR/Brewfile $HOME/.Brewfile
+ln -sfg $DIR/vim/solargraph.yml $HOME/.config/solargraph/solargraph.yml
 echo 'System: symlinks created'
 
 brew bundle --global
