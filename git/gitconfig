@@ -29,10 +29,10 @@
   autosquash = true
 [pull]
   ff = only
-[include]
-  path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
 [user]
   name = arowinski
   email = arowinski02@gmail.com
+[include]
+  path = ~/.gitconfig.local
