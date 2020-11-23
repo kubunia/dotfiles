@@ -21,6 +21,14 @@
   "spec/models/*_spec.rb": {
     "alternate": "app/models/{}.rb"
   },
+  "app/interactors/*.rb": {
+    "command": "interactor",
+    "test": ["spec/interactors/{}_spec.rb"],
+    "alternate": ["spec/interactors/{}_spec.rb"]
+  },
+  "spec/interactors/*_spec.rb": {
+    "alternate": "app/interactors/{}.rb"
+  },
   "app/builders/*_builder.rb": {
     "command": "builder",
     "test": ["spec/builders/{}_builder_spec.rb"],
