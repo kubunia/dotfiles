@@ -1,0 +1,5 @@
+Plug 'FooSoft/vim-argwrap'
+
+nnoremap <silent> <leader>aa :ArgWrap<CR>
+
+" vim:ft=vim
