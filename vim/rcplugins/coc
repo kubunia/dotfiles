@@ -2,7 +2,6 @@
 
 Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'antoinemadec/coc-fzf'
-Plug 'wellle/tmux-complete.vim'
 
 let g:coc_global_extensions = [
       \ 'coc-css',
