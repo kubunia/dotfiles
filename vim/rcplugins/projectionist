@@ -25,7 +25,7 @@ fun! s:open_alternate(names)
       endif
     endif
   else
-    exec 'vs' a:names[0]
+    exec 'vs' found
   endif
 endfun
 

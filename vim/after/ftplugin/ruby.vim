@@ -5,6 +5,10 @@ nnoremap <Leader>bp orequire "pry"; binding.pry<Esc>
 nnoremap <Leader>bP Orequire "pry"; binding.pry<Esc>
 nnoremap <silent> <Leader>br :g/binding.pry/d<CR>
 
+nnoremap <Leader>bb orequire "byebug"; byebug<Esc>
+
+let g:is_rails = RailsDetect()
+
 fun! s:project_root()
   if exists('b:rails_root')
     return b:rails_root
@@ -38,7 +42,7 @@ fun! s:extract(path)
   elseif root == 'spec'
     let parts[-1] = substitute(parts[-1], '_spec', '', '')
 
-    return parts[2: -1]
+    return g:is_rails ? parts[2: -1] : parts[1: -1]
   elseif root == 'lib'
     return parts[1: -1]
   else
@@ -47,8 +51,8 @@ fun! s:extract(path)
 endfun
 
 fun! ruby#class_name(...)
-    let path = s:file_path()
-    let parts = s:extract(path)
+  let path = s:file_path()
+  let parts = s:extract(path)
 
   call map(parts, {idx, val -> substitute(val, '\(_\|^\)\(.\)', '\u\2', 'g') })
 
@@ -59,16 +63,7 @@ fun! ruby#class_name(...)
   endif
 endfun
 
-command! CreateSpec :vs spec/%:r_spec.rb
-
 nnoremap <Leader>fl :Files lib/<CR>
 nnoremap <Leader>fs :Files spec/<CR>
-
-if exists('g:loaded_rails')
-  nnoremap <Leader>fa :Files app/<CR>
-  nnoremap <Leader>fm :Files app/models/<CR>
-  nnoremap <Leader>fc :Files app/controllers/<CR>
-  nnoremap <Leader>fv :Files app/views/<CR>
-endif
 
 " vim:ft=vim

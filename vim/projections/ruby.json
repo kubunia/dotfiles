@@ -4,7 +4,7 @@
     "test": ["spec/{}_spec.rb"],
     "alternate": ["spec/{}_spec.rb"]
   },
-  "spec/lib/*_spec.rb": {
+  "spec/*_spec.rb": {
     "command": "spec",
     "alternate": "lib/{}.rb"
   }
