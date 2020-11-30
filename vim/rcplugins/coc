@@ -9,13 +9,14 @@ let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-go',
       \ 'coc-html',
+      \ 'coc-jest',
       \ 'coc-json',
       \ 'coc-prettier',
       \ 'coc-snippets',
       \ 'coc-solargraph',
       \ 'coc-sql',
       \ 'coc-styled-components',
-      \ 'coc-stylelint',
+      \ 'coc-stylelintplus',
       \ 'coc-tailwindcss',
       \ 'coc-tsserver',
       \ 'coc-webpack',
@@ -23,6 +24,8 @@ let g:coc_global_extensions = [
       \ 'coc-jest',
       \ 'coc-yank'
       \]
+
+nnoremap <leader>sr :silent CocRestart<CR>
 
 inoremap <silent><expr> <C-l>
       \ pumvisible() ? coc#_select_confirm() :
