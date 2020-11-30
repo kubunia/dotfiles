@@ -48,4 +48,17 @@ nnoremap <Leader>cc :cclose<cr>:pclose<cr>
 
 nnoremap Q <NOP>
 
+" Shell like jump mappings
+inoremap <C-e> <END>
+cnoremap <C-e> <END>
+
+inoremap <C-a> <C-o>^
+cnoremap <C-A> <Home>
+
+inoremap <C-b> <LEFT>
+cnoremap <C-b> <LEFT>
+
+inoremap <C-f> <RIGHT>
+cnoremap <C-f> <RIGHT>
+
 " vim:ft=vim
