@@ -23,10 +23,9 @@ def rb_class_end(snip):
 			snip.rv += "\n"
 		snip.rv +=  snip.mkline("end", shift)
 		snip.unshift()
-
 endglobal
 
-snippet priv "" b
+snippet priv "private" b
 private
 
 ${0}
@@ -34,14 +33,10 @@ endsnippet
 
 snippet req "" b
 require '${1}'
-
-${0}
 endsnippet
 
-snippet def "" b
-def ${1:method_name}
-	${0}
-end
+snippet reqr "" b
+require_relative './${1}'
 endsnippet
 
 snippet class "" b
@@ -56,10 +51,44 @@ snippet module "" b
 `!p rb_class_end(snip)`
 endsnippet
 
+snippet if
+if ${1:condition}
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet ife
+	if ${1:condition}
+		${2:${VISUAL}}
+	else
+		${0}
+	end
+endsnippet
+
+snippet defi "" b
+def initialize($1)
+	${0}
+end
+endsnippet
+
+snippet def "" b
+def ${1:method_name}
+	${2}
+end
+endsnippet
+
 snippet "(?<=def\s)self" "" r
 self.${1:class_method_name}
 	${0}
 end
+endsnippet
+
+snippet ->
+-> { ${0} }
+endsnippet
+
+snippet ->a
+->(${1:args}) { ${0} }
 endsnippet
 
 snippet r "" b
@@ -86,66 +115,25 @@ snippet "(?<=(\w|\))\s){" "" r
 { |${1:var}| ${0} 
 endsnippet
 
-snippet "(?<=def\s)initialize" "" r
-initialize(${1:args})
-	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
-end
-
-private
-
-attr_reader ${1/(\w+,?\s?)(?=$)?/:$1/g}
-endsnippet
-
-snippet init "" b
-def initialize(${1:args})
-	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
-end
-
-private
-
-attr_reader ${1/(\w+,?\s?)(?=$)?/:$1/g}
-endsnippet
-
-snippet call "" b
-def self.call(${1:args})
-	new($1)
-end
-
-def initialize($1)
-	${1/(\w+,?\s?)(?=$)?/@$1/g} = $1
-end
-
-def call
-	${0: #call}
-end
-
-private
-
-attr_reader $1
-
-endsnippet
-
 #################
 ##### RSpec #####
 #################
 
 snippet spec "" b
-require '${1:rails_helper}'
-
-describe ${2:`!v ruby#class_name()`} do
+`!v g:is_rails ? "require 'rails_helper'\n\n" : ''`RSpec.describe ${1:`!v ruby#class_name()`} do
 	${0}
-end
-endsnippet
-
-snippet cont "" b
-context '${1:message}' do
-	${0:${VISUAL: #assertions}}
 end
 endsnippet
 
 snippet desc "" b
 describe '${1:#method}' do
 	${2:${VISUAL: #assertions}}
+end
+endsnippet
+
+snippet cont "" b
+context '${1:message}' do
+	${0:${VISUAL: #assertions}}
 end
 endsnippet
 
@@ -163,6 +151,14 @@ snippet exp "" b
 expect(${1}).to ${2}
 endsnippet
 
+snippet expr "" b
+expect(${1}).to raise_error(${0:error})
+endsnippet
+
+snippet all "" b
+allow(${1:stubbed}).to receive(${2:method})${3}
+endsnippet
+
 snippet agg "" b
 aggregate_failures '${1:message}' do
 	${2:${VISUAL: #examples}}
@@ -171,4 +167,8 @@ endsnippet
 
 snippet dc
 described_class
+endsnippet
+
+snippet dcn "" b
+${1:instance} = described_class.new(${2:args})
 endsnippet

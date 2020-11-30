@@ -58,7 +58,9 @@
     "typescript.tsx": "typescriptreact",
     "eruby": "html"
   },
+  "snippets.userSnippetsDirectory": "~/.vim/UltiSnips/",
   "snippets.extends": {
+    "javascript": ["javascriptreact"],
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
