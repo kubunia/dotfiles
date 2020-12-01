@@ -4,16 +4,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'antoinemadec/coc-fzf'
 
 let g:coc_global_extensions = [
+      \ 'coc-actions',
       \ 'coc-css',
       \ 'coc-emmet',
       \ 'coc-eslint',
       \ 'coc-go',
       \ 'coc-html',
       \ 'coc-jest',
+      \ 'coc-jest',
       \ 'coc-json',
       \ 'coc-prettier',
       \ 'coc-snippets',
       \ 'coc-solargraph',
+      \ 'coc-spell-checker',
       \ 'coc-sql',
       \ 'coc-styled-components',
       \ 'coc-stylelintplus',
@@ -22,7 +25,6 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-webpack',
       \ 'coc-yaml',
-      \ 'coc-jest',
       \ 'coc-yank'
       \]
 
