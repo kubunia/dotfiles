@@ -7,7 +7,7 @@ nnoremap <silent> <Leader>br :g/binding.pry/d<CR>
 
 nnoremap <Leader>bb orequire "byebug"; byebug<Esc>
 
-let g:is_rails = RailsDetect()
+let g:is_rails = 0
 
 fun! s:project_root()
   if exists('b:rails_root')
