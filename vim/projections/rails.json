@@ -129,5 +129,13 @@
   },
   "spec/lib/*_spec.rb": {
     "alternate": "lib/{}.rb"
+  },
+  "app/contracts/*_contract.rb": {
+    "command": "contract",
+    "test": ["spec/contracts/{}_contract_spec.rb"],
+    "alternate": ["spec/contracts/{}_contract_spec.rb"]
+  },
+  "spec/contracts/*_contract_spec.rb": {
+    "alternate": "app/contracts/{}_contract.rb"
   }
 }
