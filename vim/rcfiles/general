@@ -61,4 +61,9 @@ set vb t_vb=
 set autoread
 set confirm
 
+" save undo trees in files
+set undofile
+set undodir=~/.vim-undo
+set undolevels=10000
+
 " vim:ft=vim
