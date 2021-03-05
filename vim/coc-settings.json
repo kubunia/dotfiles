@@ -33,13 +33,19 @@
   "eslint.autoFixOnSave": true,
   "stylelint.enable": true,
   "prettier.requireConfig": false,
-  "prettier.stylelintIntegration": false,
+  "prettier.stylelintIntegration": true,
   "prettier.eslintIntegration": true,
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
-  "solargraph.useBundler": true,
+  "solargraph.useBundler": false,
+  "solargraph.transport": "socket",
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 7658
+  },
+  "solargraph.logLevel": "debug",
   "html.format.enable": true,
   "tsserver.formatOnType": true,
   "languageserver": {
@@ -56,7 +62,8 @@
     "typescript": "typescriptreact",
     "javascript.jsx": "javascriptreact",
     "typescript.tsx": "typescriptreact",
-    "eruby": "html"
+    "eruby": "html",
+    "ruby": "html"
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips/",
   "snippets.extends": {
@@ -77,6 +84,5 @@
     "gitcommit",
     "json"
   ],
-  "cSpell.showStatus": false,
-  "cSpell.import": ["~/.config/nvim/spell/en.utf-8.add"]
+  "cSpell.showStatus": false
 }
