@@ -11,7 +11,6 @@ let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-html',
       \ 'coc-jest',
-      \ 'coc-jest',
       \ 'coc-json',
       \ 'coc-prettier',
       \ 'coc-snippets',
@@ -23,6 +22,7 @@ let g:coc_global_extensions = [
       \ 'coc-syntax',
       \ 'coc-tailwindcss',
       \ 'coc-tsserver',
+      \ 'coc-vimlsp',
       \ 'coc-webpack',
       \ 'coc-yaml',
       \ 'coc-yank'
