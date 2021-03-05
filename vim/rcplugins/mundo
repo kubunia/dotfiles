@@ -1,0 +1,7 @@
+" Visualize undo tree
+
+Plug 'simnalamburt/vim-mundo'
+
+noremap <leader>u :MundoToggle<CR>
+
+" vim:ft=vim
