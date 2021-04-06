@@ -17,4 +17,21 @@ let test#strategy = {
   \ 'suite': 'dispatch',
 \}
 
+let g:auto_run_test = 0
+
+function AutoRunTest() abort
+  let g:auto_run_test = !(g:auto_run_test)
+
+  echo 'Test auto-run ' . (g:auto_run_test ? 'ENABLED' : 'DISABLED')
+endfunction
+
+augroup test
+  autocmd!
+  autocmd BufWrite * if g:auto_run_test && test#exists() |
+    \   TestFile |
+    \ endif
+augroup END
+
+nnoremap <leader>ta :call AutoRunTest()<CR>
+
 " vim:ft=vim
