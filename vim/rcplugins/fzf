@@ -32,6 +32,7 @@ let g:fzf_layout = {
   \}
 
 let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
+let $FZF_DEFAULT_OPTS = '--bind up:preview-up,down:preview-down'
 
 " Match file names
 command! -bang -nargs=* Ag call fzf#vim#ag(
