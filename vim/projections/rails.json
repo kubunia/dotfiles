@@ -21,6 +21,14 @@
   "spec/models/*_spec.rb": {
     "alternate": "app/models/{}.rb"
   },
+  "app/mailboxes/*_mailbox.rb": {
+    "command": "mailbox",
+    "test": ["spec/mailboxes/{}_mailbox_spec.rb"],
+    "alternate": ["spec/mailboxes/{}_mailbox_spec.rb"]
+  },
+  "spec/mailboxes/*_mailbox_spec.rb": {
+    "alternate": "app/mailboxes/{}_mailbox.rb"
+  },
   "app/interactors/*.rb": {
     "command": "interactor",
     "test": ["spec/interactors/{}_spec.rb"],
