@@ -1,0 +1,24 @@
+{
+    "workbench.sideBar.location": "right",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 15,
+    "files.autoSave": "afterDelay",
+    "editor.lineNumbers": "relative",
+    "editor.tabSize": 2,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+      "<C-a>": false,
+      "<C-w>": false,
+      "<C-d>": false,
+    },
+    "editor.mouseWheelZoom": true,
+    "workbench.colorTheme": "Monokai Pro",
+    "solargraph.useBundler": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "Monokai Pro Icons"
+}
